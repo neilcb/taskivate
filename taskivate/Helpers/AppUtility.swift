@@ -17,7 +17,9 @@ struct AppUtility {
         
         UIDevice.current.setValue(rotateOrientation.rawValue, forKey: "orientation")
     }
+    /*
     
+    */
     static func isStringAnInt(string: String) -> Bool {
         return Int(string) != nil
     }
