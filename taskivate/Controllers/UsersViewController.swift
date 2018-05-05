@@ -11,7 +11,7 @@ import Foundation
 import SwiftyBeaver
 import Firebase
 
-class UsersTableController: UITableViewController {
+class UsersViewController: UITableViewController {
     var db: Firestore!
     var selectedIndexPath = IndexPath()
     var addUserFlagged = true
@@ -28,16 +28,22 @@ class UsersTableController: UITableViewController {
         users = UserAPI.generateUserData()
         tableView.register(UserCell.self, forCellReuseIdentifier: "cellId")
         setupSearchButtonItem()
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
-            navigationItem.title = "Users"
-            navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
-            navigationController?.navigationBar.barTintColor = UIColor(r: 67, g: 133, b: 203)
-            
-            
-        }
+      
+       // navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
+        navigationItem.title = "Users"
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        navigationController?.navigationBar.barTintColor = UIColor(r: 67, g: 133, b: 203)
+      
+     
         self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Hide the Navigation Bar
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,19 +61,19 @@ class UsersTableController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! UserCell
-        
+
         self.selectedIndexPath = indexPath
-       
+
         if(!users.isEmpty && users.indices.contains(indexPath.row)) {
-            
+
             let user = users[indexPath.row]
             cell.textLabel?.text = user.firstName + " " + user.lastName
             cell.detailTextLabel?.text = user.email
-            
+
             if let profileImageUrl = user.profileImageUrl {
                 cell.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl)
             }
-            
+
             var frontimg = UIImage(named: "offline-circle-filled-20") // The image in the foreground
 
             if (user.online) {
@@ -78,16 +84,16 @@ class UsersTableController: UITableViewController {
             frontimgview.frame = CGRect(x: 32, y: 42, width: 16, height: 16) // The size and position of the front image
 
             cell.addSubview(frontimgview)
-            
-            
-            
+
+
+
         }
-        
-        
-        
+
+
+
         return cell
     }
-    
+
     func addUserButton() -> UIButton {
         
         let addUserButton = UIButton(type: .custom)

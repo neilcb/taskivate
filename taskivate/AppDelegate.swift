@@ -44,11 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
-         window = UIWindow(frame: UIScreen.main.bounds)
-         window?.makeKeyAndVisible()
-        
-         window?.rootViewController = CustomTabBarController();
-        
+       
         
         let db = Firestore.firestore()
         // [END default_firestore]
@@ -85,6 +81,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search Users", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
         
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: navigationBarAppearace.barTintColor!]
+        
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        window?.rootViewController = CustomTabBarController();
         
         
         

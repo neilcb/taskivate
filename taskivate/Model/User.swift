@@ -21,7 +21,12 @@ class User  {
     var online: Bool = false
     var profileImageUrl: String?
     
-    //let image:UIImage
+   
+   
+
+}
+
+extension User {
     func mapUser(dictionary: [String: Any]) -> User {
         
         let mappedUser = User()
@@ -29,7 +34,7 @@ class User  {
         guard let name = dictionary["firstName"] as? String else { return mappedUser }
         
         mappedUser.firstName = name
-       
+        
         guard let lastName = dictionary["lastName"] as? String else { return mappedUser }
         mappedUser.lastName = lastName
         
@@ -40,7 +45,7 @@ class User  {
         if let email = (dictionary["email"]) {
             mappedUser.email = email as! String
         }
-       
+        
         if let ph = (dictionary["phone"]) {
             mappedUser.phone = ph as! String
         }
@@ -54,11 +59,5 @@ class User  {
         return mappedUser
         
     }
-    
-    
-    
-    
-    
-    
-
 }
+

@@ -25,33 +25,7 @@ class UserAPI: NSObject {
         
     }
     
-    class func getUserInfo(forUserID: String, completion: @escaping (User) -> Swift.Void) {
-        Database.database().reference().child("users").child(forUserID).child("details").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let data = snapshot.value as? [String: String] {
-                let firstName = data["firstName"]!
-                let lastName  = data["lastName"]!
-                let email = data["email"]
-                let phone = data["phone"]!
-                let age = data["age"]!
-                let online = data["online"]!
-                let isOnline = Bool.init(online)!
-                var numericAge = Int(0)
-                if(AppUtility.isStringAnInt(string: age)){
-                    numericAge = Int(age)!
-                }
-            
-                let user = User()
-                user.firstName = firstName
-                user.lastName = lastName
-                user.email = email!
-                user.phone = phone
-               
-                user.online = isOnline
-                user.age = numericAge
-                completion(user)
-            }
-        })
-    }
+    
     
     class func registerUser(withName: String, email: String, password: String, profilePic: UIImage, completion: @escaping (Bool) -> Swift.Void) {
         Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
@@ -276,6 +250,8 @@ class UserAPI: NSObject {
         }
         
     }
+    
+    
     
     class func logOutUser(completion: @escaping (Bool) -> Swift.Void) {
         
