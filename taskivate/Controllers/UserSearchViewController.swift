@@ -37,16 +37,18 @@ class UserSearchViewController: UITableViewController {
             if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
                 if let backgroundview = textfield.subviews.first {
                     backgroundview.backgroundColor = UIColor.white
+                    backgroundview.tintColor = UIColor.white
                     backgroundview.layer.cornerRadius = 10
                     backgroundview.clipsToBounds = true
                     
                 }
             }
-            
+            searchController.searchBar.backgroundColor = UIColor(r: 67, g: 133, b: 203)
             searchController.searchResultsUpdater = self
             searchController.obscuresBackgroundDuringPresentation = false
             searchController.searchBar.placeholder = "Find Users"
             UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Cancel"
+            searchController.searchBar.tintColor = UIColor.white
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.searchController = searchController
         }

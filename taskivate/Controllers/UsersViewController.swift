@@ -200,7 +200,7 @@ class UsersViewController: UITableViewController {
         SwiftyBeaver.info("setting up add user button")
         navigationItem.rightBarButtonItem = self.searchButton
         navigationItem.rightBarButtonItem!.target = self
-        navigationItem.rightBarButtonItem!.title = NSLocalizedString("Seardh", comment: "Label for the logout button.")
+        navigationItem.rightBarButtonItem!.title = NSLocalizedString("Search", comment: "Label search button.")
         navigationItem.rightBarButtonItem?.image = UIImage(named: "search-30")
         navigationItem.rightBarButtonItem!.action = #selector(rightNavItemTapped(recognizer:))
         

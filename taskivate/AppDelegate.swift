@@ -61,32 +61,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         SwiftyBeaver.info("logging set up")
         
         let navigationBarAppearace = UINavigationBar.appearance()
-        
+        navigationBarAppearace.shadowImage = UIImage()
+        navigationBarAppearace.setBackgroundImage(UIImage(), for: .default)
         navigationBarAppearace.tintColor = UIColor.white
         navigationBarAppearace.barTintColor = UIColor(r: 67, g: 133, b: 203)
-        
+        navigationBarAppearace.backgroundColor = UIColor(r: 67, g: 133, b: 203)
+        navigationBarAppearace.isTranslucent = false
         
         let attrs = [
             NSAttributedStringKey.foregroundColor: UIColor.white,
-            NSAttributedStringKey.font: UIFont(name: "Sansation-Bold", size: 20)!
+            NSAttributedStringKey.font: UIFont(name: "HelveticaNeue-Bold", size: 20)!
         ]
         
-        UILabel.appearance().font = UIFont(name: "Sansation-Light", size: 14)!
+        UILabel.appearance().font = UIFont(name: "HelveticaNeue", size: 14)!
         
         
         navigationBarAppearace.titleTextAttributes = attrs
-        let fontRegular = UIFont(name: "Sansation-Bold", size: 15)!
+        let fontRegular = UIFont(name: "HelveticaNeue-Bold", size: 15)!
         UILabel.appearance(whenContainedInInstancesOf: [UIButton.self]).font = fontRegular
         
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search Users", attributes: [NSAttributedStringKey.foregroundColor: UIColor.lightGray])
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).attributedPlaceholder = NSAttributedString(string: "Search Users", attributes: [NSAttributedStringKey.foregroundColor: UIColor.darkGray])
         
-        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: navigationBarAppearace.barTintColor!]
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .darkGray
+        
+        UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
         
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        window?.rootViewController = CustomTabBarController();
+       // window?.rootViewController = CustomTabBarController();
+        
+        window?.rootViewController = TestViewController()
         
         
         

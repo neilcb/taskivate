@@ -46,6 +46,7 @@ class CustomTabBarController : UITabBarController {
         let settingsController = SettingsViewController()
         settingsController.tabBarItem.image = #imageLiteral(resourceName: "sliders")
         settingsController.tabBarItem.selectedImage = #imageLiteral(resourceName: "sliders-selected-1")
+        settingsController.title = "Settings"
         let settingsNavController = UINavigationController(rootViewController: settingsController)
         
         viewControllers = [dashboardNavController,userNavController,taskNavController,settingsNavController]

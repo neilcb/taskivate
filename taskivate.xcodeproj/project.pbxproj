@@ -35,6 +35,8 @@
 		28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */; };
 		28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */; };
 		28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC8209D316E00BF2A89 /* DashboardController.swift */; };
+		28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7E700209E2C7D009A8C1B /* MenuBar.swift */; };
+		28B7E703209F8A13009A8C1B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7E702209F8A13009A8C1B /* TestViewController.swift */; };
 		28E849E5209AC2A5005C5533 /* Sansation-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849DF209AC29F005C5533 /* Sansation-BoldItalic.ttf */; };
 		28E849E6209AC2A5005C5533 /* Sansation-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E0209AC2A0005C5533 /* Sansation-Italic.ttf */; };
 		28E849E7209AC2A5005C5533 /* Sansation-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E1209AC2A1005C5533 /* Sansation-Light.ttf */; };
@@ -103,6 +105,8 @@
 		28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28B25FC8209D316E00BF2A89 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
+		28B7E700209E2C7D009A8C1B /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
+		28B7E702209F8A13009A8C1B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		28E849DF209AC29F005C5533 /* Sansation-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-BoldItalic.ttf"; sourceTree = "<group>"; };
 		28E849E0209AC2A0005C5533 /* Sansation-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Italic.ttf"; sourceTree = "<group>"; };
 		28E849E1209AC2A1005C5533 /* Sansation-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Light.ttf"; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 		28625092209AB87500BD625B /* taskivate */ = {
 			isa = PBXGroup;
 			children = (
+				28B7E6FF209E2C61009A8C1B /* View */,
 				28FBE6BE209C2F2E0031D144 /* GoogleService-Info.plist */,
 				28E849DE209AC274005C5533 /* Resources */,
 				28E849C7209AC0F0005C5533 /* Extensions */,
@@ -222,6 +227,14 @@
 			path = taskivateUITests;
 			sourceTree = "<group>";
 		};
+		28B7E6FF209E2C61009A8C1B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				28B7E700209E2C7D009A8C1B /* MenuBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		28E849C1209AC084005C5533 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -235,6 +248,7 @@
 				28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */,
 				28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */,
 				28B25FC8209D316E00BF2A89 /* DashboardController.swift */,
+				28B7E702209F8A13009A8C1B /* TestViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -604,9 +618,11 @@
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
 				2823C501209AC917007A2660 /* AppUtility.swift in Sources */,
+				28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */,
 				28625094209AB87500BD625B /* AppDelegate.swift in Sources */,
 				28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */,
 				2823C4E6209AC732007A2660 /* UsersViewController.swift in Sources */,
+				28B7E703209F8A13009A8C1B /* TestViewController.swift in Sources */,
 				2823C4FE209AC917007A2660 /* DateUtils.swift in Sources */,
 				2823C4EF209AC80B007A2660 /* ViewController+Extension.swift in Sources */,
 				2823C4F0209AC80B007A2660 /* Extensions.swift in Sources */,
