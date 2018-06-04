@@ -30,13 +30,16 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }()
     
     let cellId = "cellId"
-    let imageNames = ["home-30","privacy-30","about-30","customer-hl-30"]
+    let imageNames = ["customer-hl-30","privacy-30","about-30"]
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         collectionView.register(MenuCell.self, forCellWithReuseIdentifier: cellId)
         addSubview(collectionView)
        
+        let selectedIndexPath = IndexPath(item: 0, section: 0)
+        collectionView.selectItem(at: selectedIndexPath, animated: false, scrollPosition: .centeredHorizontally)
+        
         let views: [String: Any] = [
             "collectionView": collectionView]
         
@@ -64,20 +67,21 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! MenuCell
         cell.imageView.image = UIImage(named: imageNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
+        cell.imageView.tag = indexPath.item
         cell.tintColor = UIColor(r: 2, g: 24, b: 39)
       //  cell.layer.borderColor = UIColor.white.cgColor
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: frame.width / 5, height: frame.height)
+        return CGSize(width: frame.width / 4, height: frame.height)
     }
     
     
@@ -168,6 +172,10 @@ class MenuCell: UICollectionViewCell {
     override var isSelected: Bool {
         didSet {
             imageView.tintColor = isSelected ? UIColor.white : UIColor(r: 2, g: 24, b: 39)
+            if(isSelected) {
+                print("image view selected \(imageView.tag)")
+            }
+            
         }
     }
     

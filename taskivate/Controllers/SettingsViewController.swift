@@ -8,29 +8,74 @@
 
 import UIKit
 import SwiftyBeaver
+import FirebaseAuth
+import Firebase
+import FirebaseAuthUI
+
 class SettingsViewController: UITableViewController {
+    fileprivate(set) var auth:Auth?
+    fileprivate(set) var authUI: FUIAuth?
+    private var collectionViewSizeChanged: Bool = false
+    private let margin: CGFloat = 20.0
+    var pageControl = UIPageControl.init()
     
-
+    var userOptions = [AccountAction.changeEmail.rawValue,AccountAction.changePassword.rawValue,AccountAction.signOut.rawValue]
+   
+    var currentOptions = [String]()
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.register(SettingsCell.self, forCellReuseIdentifier: SettingsCell.reuseIdentifer)
         self.tableView.register(CustomHeader.self, forHeaderFooterViewReuseIdentifier: CustomHeader.reuseIdentifer)
         tableView.delegate = self
         tableView.dataSource = self
-      
-
+        tableView.isScrollEnabled = false
+        tableView.separatorStyle = .singleLine
+        let footerView = UIView()
+        tableView.tableFooterView = footerView
+        tableView.tableFooterView?.backgroundColor = UIColor.clear
+        
+        currentOptions = userOptions
     }
     
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-//    }
+    let menuBar: MenuBar = {
+        let mb = MenuBar()
+        mb.translatesAutoresizingMaskIntoConstraints = false
+        return mb
+        
+    }()
     
-    func setUpMenuBar() {
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
         
+        collectionViewSizeChanged = true
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
-       
+        if collectionViewSizeChanged {
+            SwiftyBeaver.info("collectin view sized changed")
+            menuBar.collectionView.collectionViewLayout.invalidateLayout()
+            
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return currentOptions.count
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        if collectionViewSizeChanged {
+            collectionViewSizeChanged = false
+            menuBar.collectionView.performBatchUpdates({}, completion: nil)
+        }
     }
     
     
@@ -46,43 +91,73 @@ class SettingsViewController: UITableViewController {
     }
    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: SettingsCell.reuseIdentifer, for: indexPath) as! SettingsCell
 
-        // Configure the cell...
+        cell.textLabel?.text = currentOptions[indexPath.row]
 
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+        let selectedAction = currentOptions[indexPath.row]
+        
+        SwiftyBeaver.info(selectedAction)
+        
+        switch selectedAction {
+        case AccountAction.signOut.rawValue:
+            UserAPI.logOutUser(completion: {(status) in
+                if status != true {
+                    print("sign out failed!  This should not happen")
+                }
+            })
+        default:
+            SwiftyBeaver.info(selectedAction)
+        }
+        
+    }
+    
+
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+
         guard let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: CustomHeader.reuseIdentifer) as? CustomHeader else {
             return nil
         }
-        header.accountButton.addTarget(self, action: #selector(accountButtonTapped), for: UIControlEvents.touchUpInside)
-        
-        header.privButton.addTarget(self, action: #selector(accountButtonTapped), for: UIControlEvents.touchUpInside)
-        
+
+        header.addSubview(menuBar)
+        header.bringSubview(toFront: menuBar)
         header.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-       
         
+        let views: [String: Any] = [
+            "menuBar": menuBar]
+        
+        var allConstraints: [NSLayoutConstraint] = []
+        
+        // 3
+        let acctBtnVerticalConstraints = NSLayoutConstraint.constraints(
+            withVisualFormat: "V:|[menuBar(50)]",
+            metrics: nil,
+            views: views)
+        allConstraints += acctBtnVerticalConstraints
+        
+        
+        let topRowHorizontalConstraints = NSLayoutConstraint.constraints(
+            withVisualFormat: "H:|[menuBar(750@50)]|",
+            options: [.alignAllCenterY],
+            metrics: nil,
+            views: views)
+        allConstraints += topRowHorizontalConstraints
+        
+        NSLayoutConstraint.activate(allConstraints)
         return header
-        
-     
-        
+
+
+
     }
     
     
-    @objc func accountButtonTapped(_ sender: AnyObject) {
-        let button = sender as? UIButton
-        
-        if button?.isSelected == true {
-            button?.isSelected = false
-        }else {
-            button?.isSelected = true
-        }
-        
-       
-    }
+    
 
     
     // Override to support conditional editing of the table view.
@@ -135,6 +210,16 @@ class SettingsViewController: UITableViewController {
 
 class SettingsCell: UITableViewCell {
     
+     static let reuseIdentifer = "SettingsReuseIdentifier"
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        SwiftyBeaver.info("layout sub views")
+        textLabel?.frame = CGRect(x: 16, y: (textLabel?.frame.origin.y)!, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
+        
+        detailTextLabel?.frame = CGRect(x: 16, y: (detailTextLabel?.frame.origin.y)! + 2, width: (detailTextLabel?.frame.width)!, height: (detailTextLabel?.frame.height)!)
+    }
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
@@ -151,116 +236,13 @@ class SettingsCell: UITableViewCell {
 }
 
 class CustomHeader : UITableViewHeaderFooterView {
-   
-    
-    
-    let accountButton: UIButton = {
-        let btn = UIButton()
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        //btn.setTitle("Account", for: .normal)
-        btn.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-        btn.setImage(UIImage(named : "customer-30"), for: UIControlState.normal)
-        btn.setImage(UIImage(named : "customer-hl-30"), for: UIControlState.selected)
-       
-        btn.tag = 0
-       
-        return btn
-    }()
-    
-    
-    let privButton: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setImage(UIImage(named : "customer-30"), for: UIControlState.normal)
-        btn.setImage(UIImage(named : "customer-hl-30"), for: UIControlState.selected)
-       
-       // btn.backgroundColor = UIColor.clear
-        btn.tag = 1
-        
-        return btn
-    }()
-    
-    let comButton: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Contact", for: .normal)
-       // btn.backgroundColor = UIColor.clear
-        btn.tag = 2
-        
-        return btn
-    }()
-    
-    let helpButton: UIButton = {
-        let btn = UIButton()
-        btn.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-        btn.translatesAutoresizingMaskIntoConstraints = false
-        btn.setTitle("Help", for: .normal)
-      //  btn.backgroundColor = UIColor.clear
-        btn.tag = 3
-        return btn
-    }()
-    
-    let accountImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "cancel-user-30")
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-       // imageView.layer.cornerRadius = 20
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 1
-        imageView.contentMode = .scaleAspectFit
-        //imageView.layer.contentMode = .scaleAspectFill
-        return imageView
-        
-    }()
     
     static let reuseIdentifer = "CustomHeaderReuseIdentifier"
     
     override public init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
+        backgroundColor = UIColor(r: 67, g: 133, b: 203)
         
-        
-        super.backgroundColor = UIColor(r: 67, g: 133, b: 203)
-        addSubview(accountButton)
-        addSubview(privButton)
-        addSubview(comButton)
-        addSubview(helpButton)
-       
-
-        self.layer.backgroundColor = UIColor(r: 67, g: 133, b: 203).cgColor
-
-        let views: [String: Any] = [
-            "accountButton": accountButton,
-            "comButton": comButton,
-            "privButton": privButton,
-            "helpButton": helpButton]
-        
-        
-
-
-        var allConstraints: [NSLayoutConstraint] = []
-
-        // 3
-        let acctBtnVerticalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "V:|-8-[accountButton]",
-            metrics: nil,
-            views: views)
-        allConstraints += acctBtnVerticalConstraints
-
-
-        let topRowHorizontalConstraints = NSLayoutConstraint.constraints(
-            withVisualFormat: "H:|-[accountButton(36@36)]-20-[comButton(==accountButton)]-20-[privButton(==accountButton)]-20-[helpButton(==accountButton)]-|",
-            options: [.alignAllCenterY],
-            metrics: nil,
-            views: views)
-        allConstraints += topRowHorizontalConstraints
-        
-        //..
-        
-        NSLayoutConstraint.activate(allConstraints)
     }
     
     

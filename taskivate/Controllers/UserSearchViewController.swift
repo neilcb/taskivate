@@ -11,7 +11,7 @@ import Foundation
 import SwiftyBeaver
 import Firebase
 
-class UserSearchViewController: UITableViewController {
+class UserSearchViewController: UITableViewController, UISearchBarDelegate {
     var db: Firestore!
     var selectedIndexPath = IndexPath()
     var addUserFlagged = true
@@ -20,18 +20,21 @@ class UserSearchViewController: UITableViewController {
     
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         users = UserAPI.generateUserData()
         tableView.register(UserCell.self, forCellReuseIdentifier: "cellId")
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         
-        if #available(iOS 11.0, *) {
-            navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
+        if #available(iOS 11.3, *) {
+            //navigationController?.navigationBar.prefersLargeTitles = true // Navigation bar large titles
             navigationItem.title = "Users"
             navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
             navigationController?.navigationBar.barTintColor = UIColor(r: 67, g: 133, b: 203)
-            
+           
             let searchController = UISearchController(searchResultsController: nil) // Search Controller
             
             if let textfield = searchController.searchBar.value(forKey: "searchField") as? UITextField {
@@ -43,17 +46,30 @@ class UserSearchViewController: UITableViewController {
                     
                 }
             }
+            
+            searchController.searchBar.isTranslucent = false
+            
+            searchController.searchBar.backgroundImage = UIImage()
+            searchController.searchBar.layer.borderColor = UIColor(r: 67, g: 133, b: 203).cgColor
+            searchController.searchBar.layer.borderWidth = 1
             searchController.searchBar.backgroundColor = UIColor(r: 67, g: 133, b: 203)
             searchController.searchResultsUpdater = self
+            searchController.searchBar.delegate = self
             searchController.obscuresBackgroundDuringPresentation = false
             searchController.searchBar.placeholder = "Find Users"
+            searchController.definesPresentationContext = true
             UIBarButtonItem.appearance(whenContainedInInstancesOf: [UISearchBar.self]).title = "Cancel"
             searchController.searchBar.tintColor = UIColor.white
             navigationItem.hidesSearchBarWhenScrolling = false
             navigationItem.searchController = searchController
         }
         self.view.backgroundColor = UIColor.white
+        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {

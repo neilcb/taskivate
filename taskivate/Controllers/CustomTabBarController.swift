@@ -18,49 +18,72 @@ import SwiftyBeaver
 
 class CustomTabBarController : UITabBarController {
     
+    fileprivate(set) var auth:Auth?
+    fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
+    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         SwiftyBeaver.info("Setting up custom tab bar")
-        checkIfUserIsLoggedIn()
-        // set up tab controller views
         
-        let dashboardBoardController = DashboardController()
-        dashboardBoardController.tabBarItem.image = #imageLiteral(resourceName: "list-1")
-        dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
-        dashboardBoardController.title = "Dashboard"
-        let dashboardNavController = UINavigationController(rootViewController: dashboardBoardController)
         
-        let usersController = UsersViewController()
-        usersController.tabBarItem.image = #imageLiteral(resourceName: "users")
-        usersController.tabBarItem.selectedImage = #imageLiteral(resourceName: "users-selected")
-        usersController.tabBarItem.title = "Users"
+        SwiftyBeaver.info("checking valid user")
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                
+                let dashboardBoardController = DashboardController()
+                dashboardBoardController.tabBarItem.image = #imageLiteral(resourceName: "list-1")
+                dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
+                dashboardBoardController.title = "Dashboard"
+                let dashboardNavController = UINavigationController(rootViewController: dashboardBoardController)
+                
+                let usersController = UsersViewController()
+                usersController.tabBarItem.image = #imageLiteral(resourceName: "users")
+                usersController.tabBarItem.selectedImage = #imageLiteral(resourceName: "users-selected")
+                usersController.tabBarItem.title = "Users"
+               
+                let userNavController = UINavigationController(rootViewController: usersController)
+                
+                let taskController = TaskViewController()
+                taskController.tabBarItem.image = #imageLiteral(resourceName: "list-2")
+                taskController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
+                taskController.title = "Tasks"
+                let taskNavController = UINavigationController(rootViewController: taskController)
+                
+                let settingsController = SettingsViewController()
+                settingsController.tabBarItem.image = #imageLiteral(resourceName: "sliders")
+                settingsController.tabBarItem.selectedImage = #imageLiteral(resourceName: "sliders-selected-1")
+                settingsController.title = "Settings"
+                let settingsNavController = UINavigationController(rootViewController: settingsController)
+                
+                self.viewControllers = [dashboardNavController,userNavController,taskNavController,settingsNavController]
+            } else {
+                SwiftyBeaver.info("user is not logged in giong to login controller")
+                let loginController = HomeViewController()
+               // self.navigationController?.pushViewController(loginController, animated: true)
+                self.viewControllers = [loginController]
+            }
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        
        
-        let userNavController = UINavigationController(rootViewController: usersController)
-        
-        let taskController = TaskViewController()
-        taskController.tabBarItem.image = #imageLiteral(resourceName: "list-2")
-        taskController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
-        taskController.title = "Tasks"
-        let taskNavController = UINavigationController(rootViewController: taskController)
-        
-        let settingsController = SettingsViewController()
-        settingsController.tabBarItem.image = #imageLiteral(resourceName: "sliders")
-        settingsController.tabBarItem.selectedImage = #imageLiteral(resourceName: "sliders-selected-1")
-        settingsController.title = "Settings"
-        let settingsNavController = UINavigationController(rootViewController: settingsController)
-        
-        viewControllers = [dashboardNavController,userNavController,taskNavController,settingsNavController]
-        
     }
     
     func checkIfUserIsLoggedIn() {
         SwiftyBeaver.info("checking valid user")
-        if (Auth.auth().currentUser?.uid == nil) {
-            perform(#selector(handleLogout), with: nil, afterDelay: 0)
-            SwiftyBeaver.info("performing logout")
-        } else {
-            SwiftyBeaver.info("synching user \(Auth.auth().currentUser?.uid ?? "")")
-            synchUser()
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                SwiftyBeaver.info("user is logged \(user?.uid ?? "none for user")")
+            } else {
+                SwiftyBeaver.info("user is not logged in giong to login controller")
+                let loginController = HomeViewController()
+                self.navigationController?.pushViewController(loginController, animated: true)
+            }
         }
     }
     
@@ -101,6 +124,7 @@ class CustomTabBarController : UITabBarController {
         if let navc = self.navigationController {
             navc.pushViewController(loginController, animated: true)
         }
+        
     }
 }
 

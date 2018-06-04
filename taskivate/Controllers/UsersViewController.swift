@@ -20,7 +20,7 @@ class UsersViewController: UITableViewController {
     
     var users = [User]()
     
-    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +33,7 @@ class UsersViewController: UITableViewController {
         navigationItem.title = "Users"
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor : UIColor.white]
         navigationController?.navigationBar.barTintColor = UIColor(r: 67, g: 133, b: 203)
-      
+        navigationController?.navigationBar.prefersLargeTitles = false
      
         self.view.backgroundColor = UIColor.white
         // Do any additional setup after loading the view.
@@ -41,7 +41,7 @@ class UsersViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        navigationController?.navigationBar.prefersLargeTitles = false
         // Hide the Navigation Bar
         
     }

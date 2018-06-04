@@ -32,11 +32,14 @@
 		286250A9209AB87600BD625B /* taskivateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286250A8209AB87600BD625B /* taskivateTests.swift */; };
 		286250B4209AB87600BD625B /* taskivateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 286250B3209AB87600BD625B /* taskivateUITests.swift */; };
 		286250C2209ABA5600BD625B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 286250C1209ABA5600BD625B /* Podfile */; };
+		287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B720AF84ED00891476 /* AccountOptionsTableView.swift */; };
+		287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B920AF86E700891476 /* SettingsEnum.swift */; };
 		28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */; };
 		28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */; };
 		28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC8209D316E00BF2A89 /* DashboardController.swift */; };
 		28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7E700209E2C7D009A8C1B /* MenuBar.swift */; };
 		28B7E703209F8A13009A8C1B /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B7E702209F8A13009A8C1B /* TestViewController.swift */; };
+		28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28DF3BE520C263160009737D /* LaunchViewController.swift */; };
 		28E849E5209AC2A5005C5533 /* Sansation-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849DF209AC29F005C5533 /* Sansation-BoldItalic.ttf */; };
 		28E849E6209AC2A5005C5533 /* Sansation-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E0209AC2A0005C5533 /* Sansation-Italic.ttf */; };
 		28E849E7209AC2A5005C5533 /* Sansation-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E1209AC2A1005C5533 /* Sansation-Light.ttf */; };
@@ -44,6 +47,7 @@
 		28E849E9209AC2A5005C5533 /* Sansation-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E3209AC2A3005C5533 /* Sansation-Regular.ttf */; };
 		28E849EA209AC2A5005C5533 /* Sansation-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */; };
 		28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E849EB209AC353005C5533 /* CustomTabBarController.swift */; };
+		28F7C67020B5B52B00095260 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C66F20B5B52B00095260 /* UserProfileController.swift */; };
 		28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63C209C27D90031D144 /* DashBoardViewController.swift */; };
 		28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63E209C28290031D144 /* HomeViewController.swift */; };
 		28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */; };
@@ -102,11 +106,14 @@
 		286250B3209AB87600BD625B /* taskivateUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = taskivateUITests.swift; sourceTree = "<group>"; };
 		286250B5209AB87600BD625B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		286250C1209ABA5600BD625B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		287103B720AF84ED00891476 /* AccountOptionsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionsTableView.swift; sourceTree = "<group>"; };
+		287103B920AF86E700891476 /* SettingsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnum.swift; sourceTree = "<group>"; };
 		28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28B25FC8209D316E00BF2A89 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
 		28B7E700209E2C7D009A8C1B /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		28B7E702209F8A13009A8C1B /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		28DF3BE520C263160009737D /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		28E849DF209AC29F005C5533 /* Sansation-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-BoldItalic.ttf"; sourceTree = "<group>"; };
 		28E849E0209AC2A0005C5533 /* Sansation-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Italic.ttf"; sourceTree = "<group>"; };
 		28E849E1209AC2A1005C5533 /* Sansation-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Light.ttf"; sourceTree = "<group>"; };
@@ -114,6 +121,7 @@
 		28E849E3209AC2A3005C5533 /* Sansation-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Regular.ttf"; sourceTree = "<group>"; };
 		28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Bold.ttf"; sourceTree = "<group>"; };
 		28E849EB209AC353005C5533 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		28F7C66F20B5B52B00095260 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		28FBE63C209C27D90031D144 /* DashBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		28FBE63E209C28290031D144 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskivateAuthViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +198,7 @@
 		28625092209AB87500BD625B /* taskivate */ = {
 			isa = PBXGroup;
 			children = (
+				28DF3BE220C260610009737D /* Utils */,
 				28B7E6FF209E2C61009A8C1B /* View */,
 				28FBE6BE209C2F2E0031D144 /* GoogleService-Info.plist */,
 				28E849DE209AC274005C5533 /* Resources */,
@@ -235,6 +244,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		28DF3BE220C260610009737D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		28E849C1209AC084005C5533 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +265,9 @@
 				28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */,
 				28B25FC8209D316E00BF2A89 /* DashboardController.swift */,
 				28B7E702209F8A13009A8C1B /* TestViewController.swift */,
+				287103B720AF84ED00891476 /* AccountOptionsTableView.swift */,
+				28F7C66F20B5B52B00095260 /* UserProfileController.swift */,
+				28DF3BE520C263160009737D /* LaunchViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -280,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				2823C4E7209AC7E6007A2660 /* User.swift */,
+				287103B920AF86E700891476 /* SettingsEnum.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -532,6 +552,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-taskivate/Pods-taskivate-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
@@ -555,6 +576,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
@@ -609,14 +631,18 @@
 				28625096209AB87500BD625B /* ViewController.swift in Sources */,
 				28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */,
 				28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */,
+				28F7C67020B5B52B00095260 /* UserProfileController.swift in Sources */,
 				2823C500209AC917007A2660 /* LogoutUtils.swift in Sources */,
 				28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */,
+				287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */,
 				2823C4EE209AC80B007A2660 /* UIImageView+Download.swift in Sources */,
 				2823C4E5209AC732007A2660 /* UserSearchViewController.swift in Sources */,
 				28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */,
 				28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */,
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
+				28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */,
+				287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */,
 				2823C501209AC917007A2660 /* AppUtility.swift in Sources */,
 				28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */,
 				28625094209AB87500BD625B /* AppDelegate.swift in Sources */,
@@ -804,11 +830,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3C803028BB7627596AD68378 /* Pods-taskivate.debug.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_ENTITLEMENTS = taskivate/taskivate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -824,11 +851,12 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39BCB79730C3B6FC8F9D3A03 /* Pods-taskivate.release.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-2";
 				CODE_SIGN_ENTITLEMENTS = taskivate/taskivate.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivate/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -848,6 +876,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -869,6 +898,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -890,6 +920,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -911,6 +942,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -30,8 +30,7 @@ class DasboardViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        checkIfUserIsLoggedIn()
-        
+       
         if let image = UIImage(named: "user-filled-50") {
             self.addLeftBarIcon(image: image)
             
@@ -70,18 +69,7 @@ class DasboardViewController: UIViewController {
         
     
         self.authStateListenerHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            guard user != nil else {
-                
-                print("user not siged in redirecting to signin")
-                let homeViewController = HomeViewController()
-                
-                if let navc = self.navigationController {
-                    navc.pushViewController(homeViewController, animated: true)
-                }
-                return
-                
-            }
-            
+
             
             self.navigationController?.isNavigationBarHidden = false
            

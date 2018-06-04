@@ -31,9 +31,8 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        print("view did load")
-        
+        self.view.backgroundColor = UIColor(r: 67, g: 133, b: 203)
+       
        
         
         if FirebaseApp.app() == nil {

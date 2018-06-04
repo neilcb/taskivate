@@ -84,15 +84,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = .darkGray
         
+        
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).defaultTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.darkGray]
         
+        
+        UIApplication.shared.statusBarView?.backgroundColor = UIColor(r: 67, g: 133, b: 203)
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-       // window?.rootViewController = CustomTabBarController();
+        window?.rootViewController = CustomTabBarController();
         
-        window?.rootViewController = TestViewController()
+        //window?.rootViewController = TestViewController()
+        
+       // window?.rootViewController = HomeViewController()
         
         
         

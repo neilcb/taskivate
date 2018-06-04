@@ -29,6 +29,7 @@ class TaskivateAuthViewController : FUIAuthPickerViewController {
         view.layer.masksToBounds = true
         let image = #imageLiteral(resourceName: "white_logo_transparent")
         view.image = image
+        
         view.contentMode = .scaleAspectFit
         return view
     }()
@@ -57,6 +58,8 @@ class TaskivateAuthViewController : FUIAuthPickerViewController {
         super.init(coder: aDecoder)
     }
     
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,6 +68,7 @@ class TaskivateAuthViewController : FUIAuthPickerViewController {
         view.autoresizingMask = UIViewAutoresizing.flexibleLeftMargin
         view.autoresizesSubviews = true
         //self.navigationController?.setNavigationBarHidden(true, animated: false)
+        //view.addSubview(uiImageView)
         setUpImageContainterView()
      //   setUpLoginRegistrationButton()
         self.navigationItem.leftBarButtonItem = nil
@@ -88,18 +92,29 @@ class TaskivateAuthViewController : FUIAuthPickerViewController {
     }
     
     func setUpImageContainterView() {
-        uiImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        uiImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: -200).isActive = true
-        uiImageView.widthAnchor.constraint(equalTo: view.widthAnchor,constant: -252).isActive = true
-        uiImageView.heightAnchor.constraint(equalToConstant: 175.5).isActive = true
+        
+        let topImageContainerView = UIView()
+        topImageContainerView.translatesAutoresizingMaskIntoConstraints = false
+        topImageContainerView.backgroundColor = view.backgroundColor
+        view.addSubview(topImageContainerView)
+        
+        topImageContainerView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        topImageContainerView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        topImageContainerView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        topImageContainerView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
+        topImageContainerView.addSubview(uiImageView)
+       
+        uiImageView.centerXAnchor.constraint(equalTo: topImageContainerView.centerXAnchor).isActive = true
+        uiImageView.centerYAnchor.constraint(equalTo: topImageContainerView.centerYAnchor).isActive = true
+        uiImageView.heightAnchor.constraint(equalTo: topImageContainerView.heightAnchor, multiplier: 0.8).isActive = true
         
     }
     
     func setUpLoginRegistrationButton() {
         loginRegisterButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         loginRegisterButton.centerYAnchor.constraint(equalTo: view.centerYAnchor,constant: 100).isActive = true
-        loginRegisterButton.widthAnchor.constraint(equalTo: view.widthAnchor,constant: -195).isActive = true
-        loginRegisterButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        loginRegisterButton.widthAnchor.constraint(equalTo: view.widthAnchor,constant: 200).isActive = true
+        loginRegisterButton.heightAnchor.constraint(equalToConstant: 200).isActive = true
         
     }
 }

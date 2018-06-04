@@ -14,6 +14,7 @@ target 'taskivate' do
   pod 'FirebaseUI/Google'
   pod 'JSQMessagesViewController'
   pod 'SwiftyBeaver'
+  pod 'Eureka'
 
   target 'taskivateUITests' do
     inherit! :search_paths

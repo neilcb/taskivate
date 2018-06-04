@@ -22,13 +22,16 @@ class DashboardController: UIViewController {
     var profileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "user-filled-blue-50")
+        
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.layer.cornerRadius = 20
         imageView.layer.masksToBounds = true
         imageView.layer.borderColor = UIColor.white.cgColor
         imageView.layer.borderWidth = 1
+        imageView.isUserInteractionEnabled = true
         imageView.contentMode = .scaleAspectFill
-       
+        
+        
         return imageView
         
     }()
@@ -38,12 +41,23 @@ class DashboardController: UIViewController {
         db = Firestore.firestore()
         self.view.backgroundColor = UIColor.white
         navigationItem.title = titleText
-        
+        checkIfUserIsLoggedIn()
         setUpDisplayName()
         setUpProfileImage()
         // Do any additional setup after loading the view.
     }
-    
+    func checkIfUserIsLoggedIn() {
+        SwiftyBeaver.info("checking valid user")
+        Auth.auth().addStateDidChangeListener { (auth, user) in
+            if user != nil {
+                SwiftyBeaver.info("user is logged \(user?.uid ?? "none for user")")
+            } else {
+                SwiftyBeaver.info("user is not logged in giong to login controller")
+                let loginController = HomeViewController()
+                self.navigationController?.pushViewController(loginController, animated: true)
+            }
+        }
+    }
     
     func setUpDisplayName() {
         if let user = Auth.auth().currentUser {
@@ -68,15 +82,41 @@ class DashboardController: UIViewController {
         let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         negativeSpacer.width = -25
         let imageItem = UIBarButtonItem.init(customView: profileImageView)
-    
-      
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTaped(recognizer:)))
+        singleTap.numberOfTapsRequired = 1;
+        profileImageView.addGestureRecognizer(singleTap)
+        
+      //  imageItem.target = self
+      //  imageItem.action = #selector(userProfileImageTapped)
         navigationItem.leftBarButtonItem =  imageItem
     }
-
+    
+    @objc func userProfileImageTapped() {
+        SwiftyBeaver.info("profile image selected/tapped")
+        let userProfileController = UserProfileController()
+        navigationController?.pushViewController(userProfileController, animated: true)
+        
+    }
+    
+    @objc func profileImageTaped(recognizer: UIGestureRecognizer) {
+        print("image clicked")
+        SwiftyBeaver.info("profile image selected/tapped")
+        let userProfileController = UserProfileController()
+        userProfileController.hidesBottomBarWhenPushed = true
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        //userProfileController.supportedInterfaceOrientations = .portrait
+        self.navigationItem.backBarButtonItem = backItem
+        navigationController?.pushViewController(userProfileController, animated: false)
+    }
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
