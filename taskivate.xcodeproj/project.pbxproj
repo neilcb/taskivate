@@ -26,7 +26,7 @@
 		2823C502209AC917007A2660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FC209AC917007A2660 /* Constants.swift */; };
 		282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282B238620CD978D00F7B5ED /* UserInfoCell.swift */; };
 		284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */; };
-		284535EB20C4D53900A0BE8B /* MyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* MyFormViewController.swift */; };
+		284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* UserProfileController.swift */; };
 		28625094209AB87500BD625B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625093209AB87500BD625B /* AppDelegate.swift */; };
 		28625096209AB87500BD625B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625095209AB87500BD625B /* ViewController.swift */; };
 		28625099209AB87500BD625B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28625097209AB87500BD625B /* Main.storyboard */; };
@@ -50,7 +50,7 @@
 		28E849E9209AC2A5005C5533 /* Sansation-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E3209AC2A3005C5533 /* Sansation-Regular.ttf */; };
 		28E849EA209AC2A5005C5533 /* Sansation-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */; };
 		28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E849EB209AC353005C5533 /* CustomTabBarController.swift */; };
-		28F7C67020B5B52B00095260 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C66F20B5B52B00095260 /* UserProfileController.swift */; };
+		28F7C67020B5B52B00095260 /* UserProfileController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */; };
 		28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63C209C27D90031D144 /* DashBoardViewController.swift */; };
 		28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63E209C28290031D144 /* HomeViewController.swift */; };
 		28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */; };
@@ -97,7 +97,7 @@
 		282B238620CD978D00F7B5ED /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		282DBC91209ABD4F0034DEF8 /* taskivate.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = taskivate.entitlements; sourceTree = "<group>"; };
 		284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUIProperties.swift; sourceTree = "<group>"; };
-		284535EA20C4D53900A0BE8B /* MyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormViewController.swift; sourceTree = "<group>"; };
+		284535EA20C4D53900A0BE8B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		28625090209AB87500BD625B /* taskivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28625093209AB87500BD625B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28625095209AB87500BD625B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 		28E849E3209AC2A3005C5533 /* Sansation-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Regular.ttf"; sourceTree = "<group>"; };
 		28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Bold.ttf"; sourceTree = "<group>"; };
 		28E849EB209AC353005C5533 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
-		28F7C66F20B5B52B00095260 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController_old.swift; sourceTree = "<group>"; };
 		28FBE63C209C27D90031D144 /* DashBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		28FBE63E209C28290031D144 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskivateAuthViewController.swift; sourceTree = "<group>"; };
@@ -282,9 +282,9 @@
 				28B25FC8209D316E00BF2A89 /* DashboardController.swift */,
 				28B7E702209F8A13009A8C1B /* TestViewController.swift */,
 				287103B720AF84ED00891476 /* AccountOptionsTableView.swift */,
-				28F7C66F20B5B52B00095260 /* UserProfileController.swift */,
+				28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */,
 				28DF3BE520C263160009737D /* LaunchViewController.swift */,
-				284535EA20C4D53900A0BE8B /* MyFormViewController.swift */,
+				284535EA20C4D53900A0BE8B /* UserProfileController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -650,7 +650,7 @@
 				28625096209AB87500BD625B /* ViewController.swift in Sources */,
 				28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */,
 				28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */,
-				28F7C67020B5B52B00095260 /* UserProfileController.swift in Sources */,
+				28F7C67020B5B52B00095260 /* UserProfileController_old.swift in Sources */,
 				2823C500209AC917007A2660 /* LogoutUtils.swift in Sources */,
 				28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */,
 				282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */,
@@ -660,7 +660,7 @@
 				28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */,
 				28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */,
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
-				284535EB20C4D53900A0BE8B /* MyFormViewController.swift in Sources */,
+				284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
 				28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */,
 				287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */,

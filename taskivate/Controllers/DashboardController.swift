@@ -108,7 +108,7 @@ class DashboardController: UIViewController {
     @objc func profileImageTaped(recognizer: UIGestureRecognizer) {
         print("image clicked")
         SwiftyBeaver.info("profile image selected/tapped")
-        let userProfileController = MyFormViewController()
+        let userProfileController = UserProfileController()
         userProfileController.hidesBottomBarWhenPushed = true
         let backItem = UIBarButtonItem()
         backItem.title = ""
