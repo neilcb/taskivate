@@ -8,19 +8,27 @@
 
 import UIKit
 
-class User  {
+class User: Equatable {
+    
+    
     
     static let userSynchKey = "userSynchedOnLogin"
     
     var firstName: String = ""
     var lastName: String = ""
+    var displayName: String = ""
     var email: String = ""
     var phone: String = ""
+    var dateOfBirth = Date()
     var id: String = ""
     var age: Int = 0
     var online: Bool = false
     var profileImageUrl: String?
     
+    
+    static func == (lhs: User, rhs: User) -> Bool {
+        return lhs.email == rhs.email
+    }
    
    
 
@@ -38,6 +46,9 @@ extension User {
         guard let lastName = dictionary["lastName"] as? String else { return mappedUser }
         mappedUser.lastName = lastName
         
+        if let dn = (dictionary["displayName"]) {
+            mappedUser.displayName = dn as! String
+        }
         if let profileImageUrl = (dictionary["profileImageUrl"]) {
             mappedUser.profileImageUrl = profileImageUrl as? String
         }

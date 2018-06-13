@@ -10,11 +10,13 @@ import UIKit
 import Firebase
 import FirebaseAuthUI
 import SwiftyBeaver
+import Eureka
 
 class UserProfileController: UIViewController {
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
    
+    
     
     let metrics = [
         "horizontalPadding": Metrics.padding,
@@ -22,6 +24,7 @@ class UserProfileController: UIViewController {
     
     var allConstraints: [NSLayoutConstraint] = []
     
+   
     
     
     let profileImageView: UIImageView = {
@@ -91,9 +94,9 @@ class UserProfileController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         self.navigationItem.title = "Me"
-        //handleOrientation()
+        
         setupViews()
-        //handleTransition()
+       
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -123,15 +126,7 @@ class UserProfileController: UIViewController {
     
 
     private func setupViews() {
-    //    let topView = UIView()
-        
-//        topView.translatesAutoresizingMaskIntoConstraints = false
-//        view.addSubview(topView)
-//        topView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        topView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        topView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        topView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.3).isActive = true
-//
+   
 
         if let profileImageUrl = Auth.auth().currentUser?.photoURL {
             self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
@@ -139,34 +134,40 @@ class UserProfileController: UIViewController {
             self.profileImageView.image = newImage
         }
         
-        
-       
       
         view.addSubview(profileImageView)
         view.addSubview(firstNameTextField)
         view.addSubview(lastNameTextField)
         view.addSubview(saveButton)
-       
+        view.addSubview(editImageView)
+      
+        
         profileImageView.layer.cornerRadius = 75
         profileImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         profileImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: 25).isActive = true
-     
+        
+        
+        editImageView.topAnchor.constraint(equalTo: profileImageView.topAnchor).isActive = true
+        editImageView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -16).isActive = true
+        
+        
+        
         firstNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         firstNameTextField.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 16).isActive = true
         firstNameTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
         firstNameTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+
         lastNameTextField.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         lastNameTextField.topAnchor.constraint(equalTo: firstNameTextField.bottomAnchor, constant: 8).isActive = true
         lastNameTextField.widthAnchor.constraint(equalToConstant: 300).isActive = true
         lastNameTextField.heightAnchor.constraint(equalToConstant: 30).isActive = true
-        
+
         saveButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         saveButton.topAnchor.constraint(equalTo: lastNameTextField.bottomAnchor, constant: 8).isActive = true
         saveButton.layer.cornerRadius = 10
         saveButton.widthAnchor.constraint(equalToConstant: 300).isActive = true
         saveButton.heightAnchor.constraint(equalToConstant: 30).isActive = true
-     
+
         
         
     }
@@ -194,26 +195,10 @@ class UserProfileController: UIViewController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        //handleTransition()
+        
     }
     
-    func handleOrientation() {
-        let value = UIInterfaceOrientation.portrait.rawValue
-        UIDevice.current.setValue(value, forKey: "orientation")
-        AppUtility.lockOrientation(.portrait)
-    }
-    
-    func handleTransition() {
-        if UIDevice.current.orientation.isLandscape {
-            print("Landscape")
-            editImageView.isHidden = true
-            profileImageView.layer.borderColor = UIColor.clear.cgColor
-        } else {
-            editImageView.isHidden = false
-            profileImageView.layer.borderColor = UIColor.white.cgColor
-        }
-    }
-    
+  
 
 }
 

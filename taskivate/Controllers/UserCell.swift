@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import SwiftyBeaver
+//import SwiftyBeaver
 class UserCell: UITableViewCell {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        SwiftyBeaver.info("layout sub views")
+        //SwiftyBeaver.info("layout sub views")
         textLabel?.frame = CGRect(x: 56, y: (textLabel?.frame.origin.y)! - 2, width: (textLabel?.frame.width)!, height: (textLabel?.frame.height)!)
         
         detailTextLabel?.frame = CGRect(x: 56, y: (detailTextLabel?.frame.origin.y)! + 2, width: (detailTextLabel?.frame.width)!, height: (detailTextLabel?.frame.height)!)
@@ -72,7 +72,7 @@ class UserCell: UITableViewCell {
     @objc func addUserImageTapped(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {
-            SwiftyBeaver.info("Add User - Invite")
+          //  SwiftyBeaver.info("Add User - Invite")
             
         }
     }

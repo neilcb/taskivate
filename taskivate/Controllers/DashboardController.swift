@@ -15,6 +15,8 @@ class DashboardController: UIViewController {
     var titleText = "Hello"
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
+    
+    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
     //var demoFeatures: [DemoFeature] = []
     fileprivate let loginButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
     var db: Firestore!
@@ -45,6 +47,11 @@ class DashboardController: UIViewController {
         setUpDisplayName()
         setUpProfileImage()
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        displayUserInfo()
     }
     func checkIfUserIsLoggedIn() {
         SwiftyBeaver.info("checking valid user")
@@ -101,7 +108,7 @@ class DashboardController: UIViewController {
     @objc func profileImageTaped(recognizer: UIGestureRecognizer) {
         print("image clicked")
         SwiftyBeaver.info("profile image selected/tapped")
-        let userProfileController = UserProfileController()
+        let userProfileController = MyFormViewController()
         userProfileController.hidesBottomBarWhenPushed = true
         let backItem = UIBarButtonItem()
         backItem.title = ""
@@ -117,7 +124,26 @@ class DashboardController: UIViewController {
     }
     
     
-    
+    func displayUserInfo() {
+        SwiftyBeaver.info("auth state listener triggered")
+        self.authStateListenerHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
+            guard user != nil else {
+                
+                print("user not siged in redirecting to signin")
+                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! HomeViewController
+                if let navc = self.navigationController {
+                    navc.pushViewController(homeViewController, animated: true)
+                }
+                return
+                
+            }
+            
+            if let profileImageUrl = Auth.auth().currentUser?.photoURL {
+                self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
+            }
+            
+        }
+    }
 
     /*
     // MARK: - Navigation

@@ -24,6 +24,9 @@
 		2823C500209AC917007A2660 /* LogoutUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FA209AC915007A2660 /* LogoutUtils.swift */; };
 		2823C501209AC917007A2660 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FB209AC916007A2660 /* AppUtility.swift */; };
 		2823C502209AC917007A2660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FC209AC917007A2660 /* Constants.swift */; };
+		282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282B238620CD978D00F7B5ED /* UserInfoCell.swift */; };
+		284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */; };
+		284535EB20C4D53900A0BE8B /* MyFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* MyFormViewController.swift */; };
 		28625094209AB87500BD625B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625093209AB87500BD625B /* AppDelegate.swift */; };
 		28625096209AB87500BD625B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625095209AB87500BD625B /* ViewController.swift */; };
 		28625099209AB87500BD625B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28625097209AB87500BD625B /* Main.storyboard */; };
@@ -91,7 +94,10 @@
 		2823C4FA209AC915007A2660 /* LogoutUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoutUtils.swift; sourceTree = "<group>"; };
 		2823C4FB209AC916007A2660 /* AppUtility.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppUtility.swift; sourceTree = "<group>"; };
 		2823C4FC209AC917007A2660 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		282B238620CD978D00F7B5ED /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		282DBC91209ABD4F0034DEF8 /* taskivate.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = taskivate.entitlements; sourceTree = "<group>"; };
+		284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUIProperties.swift; sourceTree = "<group>"; };
+		284535EA20C4D53900A0BE8B /* MyFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFormViewController.swift; sourceTree = "<group>"; };
 		28625090209AB87500BD625B /* taskivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28625093209AB87500BD625B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28625095209AB87500BD625B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -172,6 +178,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		284535E720C4CD2C00A0BE8B /* Form */ = {
+			isa = PBXGroup;
+			children = (
+				284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */,
+			);
+			path = Form;
+			sourceTree = "<group>";
+		};
 		28625087209AB87500BD625B = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +212,7 @@
 		28625092209AB87500BD625B /* taskivate */ = {
 			isa = PBXGroup;
 			children = (
+				284535E720C4CD2C00A0BE8B /* Form */,
 				28DF3BE220C260610009737D /* Utils */,
 				28B7E6FF209E2C61009A8C1B /* View */,
 				28FBE6BE209C2F2E0031D144 /* GoogleService-Info.plist */,
@@ -254,6 +269,7 @@
 		28E849C1209AC084005C5533 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				282B238620CD978D00F7B5ED /* UserInfoCell.swift */,
 				28FBE63E209C28290031D144 /* HomeViewController.swift */,
 				28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */,
 				28FBE63C209C27D90031D144 /* DashBoardViewController.swift */,
@@ -268,6 +284,7 @@
 				287103B720AF84ED00891476 /* AccountOptionsTableView.swift */,
 				28F7C66F20B5B52B00095260 /* UserProfileController.swift */,
 				28DF3BE520C263160009737D /* LaunchViewController.swift */,
+				284535EA20C4D53900A0BE8B /* MyFormViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -558,6 +575,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
@@ -582,6 +600,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
@@ -634,12 +653,14 @@
 				28F7C67020B5B52B00095260 /* UserProfileController.swift in Sources */,
 				2823C500209AC917007A2660 /* LogoutUtils.swift in Sources */,
 				28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */,
+				282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */,
 				287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */,
 				2823C4EE209AC80B007A2660 /* UIImageView+Download.swift in Sources */,
 				2823C4E5209AC732007A2660 /* UserSearchViewController.swift in Sources */,
 				28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */,
 				28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */,
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
+				284535EB20C4D53900A0BE8B /* MyFormViewController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
 				28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */,
 				287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */,
@@ -652,6 +673,7 @@
 				2823C4FE209AC917007A2660 /* DateUtils.swift in Sources */,
 				2823C4EF209AC80B007A2660 /* ViewController+Extension.swift in Sources */,
 				2823C4F0209AC80B007A2660 /* Extensions.swift in Sources */,
+				284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */,
 				2823C4E8209AC7E6007A2660 /* User.swift in Sources */,
 				2823C502209AC917007A2660 /* Constants.swift in Sources */,
 				2823C4F4209AC87C007A2660 /* UserError.swift in Sources */,

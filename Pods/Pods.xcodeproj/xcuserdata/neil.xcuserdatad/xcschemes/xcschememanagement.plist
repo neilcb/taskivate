@@ -69,6 +69,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>ImageRow.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>JSQMessagesViewController.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -87,7 +92,7 @@
 		<key>Pods-taskivateUITests.xcscheme</key>
 		<dict>
 			<key>isShown</key>
-			<true/>
+			<false/>
 		</dict>
 		<key>Protobuf.xcscheme</key>
 		<dict>

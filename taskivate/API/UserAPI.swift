@@ -95,11 +95,59 @@ class UserAPI: NSObject {
         
     }
     
-    class func updateUser(firstName: String, lastName: String, completion: @escaping (Bool, Error?) -> Swift.Void) {
+    class func queryUser(uid: String) -> User {
+        var user = User()
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("users").document(uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                SwiftyBeaver.info("Document data: \(dataDescription)")
+                
+                user = User().mapUser(dictionary: document.data()!)
+                user.id = document.documentID
+                
+                
+               
+            } else {
+                SwiftyBeaver.info("user doesn't exist")
+            }
+        }
+        return user
+        
+        
+    }
+    
+    class func fetchUserToDisplay(uid:String, completionHandler: @escaping (User?, Error?) -> Swift.Void) {
+        var user = User()
+        let db = Firestore.firestore()
+        
+        let docRef = db.collection("users").document(uid)
+        
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                SwiftyBeaver.info("Document data: \(dataDescription)")
+                
+                user = User().mapUser(dictionary: document.data()!)
+                completionHandler(user,nil)
+                
+                
+                
+            } else if let err = error{
+                SwiftyBeaver.error(err.localizedDescription)
+                completionHandler(nil,err)
+            }
+        }
+    }
+    
+    class func updateUser(displayName: String, dob: Date, phone: String, completion: @escaping (Bool, Error?) -> Swift.Void) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         let uid = Auth.auth().currentUser?.uid
         let email = Auth.auth().currentUser?.email
-        changeRequest?.displayName = firstName + " " + lastName
+        changeRequest?.displayName = displayName
         
         changeRequest?.commitChanges { (error) in
             if let error = error {
@@ -107,8 +155,13 @@ class UserAPI: NSObject {
                 completion(false, error)
             } else {
                 let user = User()
-                user.firstName = firstName
-                user.lastName = lastName
+                
+                let stringArray = Auth.auth().currentUser?.displayName?.components(separatedBy: " ")
+                if(stringArray != nil) {
+                    user.firstName = (stringArray?[0])!
+                    user.lastName = (stringArray?[1])!
+                }
+                
                 user.id = uid!
                 user.email = email!
                 syncUserData(user: user, completion: { (status, error) in

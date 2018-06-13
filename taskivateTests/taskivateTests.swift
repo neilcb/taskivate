@@ -8,6 +8,7 @@
 
 import XCTest
 @testable import taskivate
+import Firebase
 
 class taskivateTests: XCTestCase {
     
