@@ -11,32 +11,12 @@ import Firebase
 import FirebaseAuthUI
 import SwiftyBeaver
 
-class DashboardController: UIViewController {
+class DashboardController: BaseViewController {
     var titleText = "Hello"
-    fileprivate(set) var auth:Auth?
-    fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
-    
-    fileprivate(set) var authStateListenerHandle: AuthStateDidChangeListenerHandle?
-    //var demoFeatures: [DemoFeature] = []
+
     fileprivate let loginButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
     var db: Firestore!
     
-    var profileImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(named: "user-filled-blue-50")
-        
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.layer.cornerRadius = 20
-        imageView.layer.masksToBounds = true
-        imageView.layer.borderColor = UIColor.white.cgColor
-        imageView.layer.borderWidth = 1
-        imageView.isUserInteractionEnabled = true
-        imageView.contentMode = .scaleAspectFill
-        
-        
-        return imageView
-        
-    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,13 +25,14 @@ class DashboardController: UIViewController {
         navigationItem.title = titleText
         checkIfUserIsLoggedIn()
         setUpDisplayName()
-        setUpProfileImage()
-        // Do any additional setup after loading the view.
+       
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        displayUserInfo()
+        setUpDisplayName()
+        setUpProfileImage()
+      
     }
     func checkIfUserIsLoggedIn() {
         SwiftyBeaver.info("checking valid user")
@@ -75,49 +56,6 @@ class DashboardController: UIViewController {
         }
     }
     
-    func setUpProfileImage() {
-        // add contraints
-        
-        if let profileImageUrl = Auth.auth().currentUser?.photoURL {
-           self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
-        }
-        
-        let widthConstraint = profileImageView.widthAnchor.constraint(equalToConstant: 40)
-        let heightConstraint = profileImageView.heightAnchor.constraint(equalToConstant: 40)
-        heightConstraint.isActive = true
-        widthConstraint.isActive = true
-        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        negativeSpacer.width = -25
-        let imageItem = UIBarButtonItem.init(customView: profileImageView)
-        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTaped(recognizer:)))
-        singleTap.numberOfTapsRequired = 1;
-        profileImageView.addGestureRecognizer(singleTap)
-        
-      //  imageItem.target = self
-      //  imageItem.action = #selector(userProfileImageTapped)
-        navigationItem.leftBarButtonItem =  imageItem
-    }
-    
-    @objc func userProfileImageTapped() {
-        SwiftyBeaver.info("profile image selected/tapped")
-        let userProfileController = UserProfileController()
-        navigationController?.pushViewController(userProfileController, animated: true)
-        
-    }
-    
-    @objc func profileImageTaped(recognizer: UIGestureRecognizer) {
-        print("image clicked")
-        SwiftyBeaver.info("profile image selected/tapped")
-        let userProfileController = UserProfileController()
-        userProfileController.hidesBottomBarWhenPushed = true
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        //userProfileController.supportedInterfaceOrientations = .portrait
-        self.navigationItem.backBarButtonItem = backItem
-        navigationController?.pushViewController(userProfileController, animated: false)
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -125,24 +63,13 @@ class DashboardController: UIViewController {
     
     
     func displayUserInfo() {
-        SwiftyBeaver.info("auth state listener triggered")
-        self.authStateListenerHandle = Auth.auth().addStateDidChangeListener { (auth, user) in
-            guard user != nil else {
-                
-                print("user not siged in redirecting to signin")
-                let homeViewController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as! HomeViewController
-                if let navc = self.navigationController {
-                    navc.pushViewController(homeViewController, animated: true)
-                }
-                return
-                
-            }
-            
-            if let profileImageUrl = Auth.auth().currentUser?.photoURL {
-                self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
-            }
-            
+       
+        
+        if let profileImageUrl = Auth.auth().currentUser?.photoURL {
+            self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
         }
+            
+       
     }
 
     /*

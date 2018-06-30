@@ -141,6 +141,12 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
+  - PhoneNumberKit (2.1.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
+    - PhoneNumberKit/UIKit (= 2.1.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
+  - PhoneNumberKit/UIKit (2.1.0):
+    - PhoneNumberKit/PhoneNumberKitCore
   - Protobuf (3.5.0)
   - SDWebImage (4.3.3):
     - SDWebImage/Core (= 4.3.3)
@@ -160,6 +166,7 @@ DEPENDENCIES:
   - FirebaseUI/Google
   - ImageRow
   - JSQMessagesViewController
+  - PhoneNumberKit (~> 2.1)
   - SwiftyBeaver
 
 SPEC REPOS:
@@ -191,6 +198,7 @@ SPEC REPOS:
     - JSQSystemSoundPlayer
     - leveldb-library
     - nanopb
+    - PhoneNumberKit
     - Protobuf
     - SDWebImage
     - SwiftyBeaver
@@ -225,12 +233,13 @@ SPEC CHECKSUMS:
   JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
+  PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
   Protobuf: 8a9838fba8dae3389230e1b7f8c104aa32389c03
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   SwiftyBeaver: 4f74563624b2c1e821c522c54142b5dd5ebb0f30
   TwitterCore: 644d59e75abccb26cf0a9050d2c4dea0e5412241
   TwitterKit: a2e60ddcedbf54091eac6f27685ca7a87681e1d7
 
-PODFILE CHECKSUM: 57677bacb4d94a6197b2e2d709ce59c482b5c990
+PODFILE CHECKSUM: e3078b96dd63208b7c4366d734fc6c59e9fd4803
 
 COCOAPODS: 1.5.0.beta.1

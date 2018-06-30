@@ -11,6 +11,9 @@ import UIKit
 import SwiftyBeaver
 
 let imageCache = NSCache<NSString, AnyObject>()
+let userCache = NSCache<NSString, User>()
+
+
 
 extension UIImageView {
    
@@ -18,7 +21,7 @@ extension UIImageView {
     func loadImageUserCacheWithUrlString(urlString: String) {
         
         self.image = nil
-        
+        SwiftyBeaver.info("check for image \(urlString) ")
         //check cache for image first
         if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
             self.image = cachedImage
@@ -38,7 +41,7 @@ extension UIImageView {
             DispatchQueue.main.async() {
                 if let downloadedImage = UIImage(data: data) {
                     imageCache.setObject(downloadedImage, forKey: urlString as NSString)
-                    
+                    SwiftyBeaver.info("saving to cach \(urlString)")
                     self.image = downloadedImage
                 }
             }

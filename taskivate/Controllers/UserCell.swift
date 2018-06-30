@@ -66,9 +66,6 @@ class UserCell: UITableViewCell {
     }()
     
     
-    
-    
-    
     @objc func addUserImageTapped(gesture: UIGestureRecognizer) {
         // if the tapped view is a UIImageView then set it to imageview
         if (gesture.view as? UIImageView) != nil {

@@ -16,6 +16,7 @@ target 'taskivate' do
   pod 'SwiftyBeaver'
   pod 'Eureka'
   pod 'ImageRow'
+  pod 'PhoneNumberKit', '~> 2.1'
 
   target 'taskivateUITests' do
     inherit! :search_paths

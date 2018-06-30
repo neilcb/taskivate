@@ -34,17 +34,17 @@ class CustomTabBarController : UITabBarController {
                 
                 let dashboardBoardController = DashboardController()
                 dashboardBoardController.tabBarItem.image = #imageLiteral(resourceName: "list-1")
-                dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
+                dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-1-selected")
                 dashboardBoardController.title = "Dashboard"
                 let dashboardNavController = UINavigationController(rootViewController: dashboardBoardController)
                 
-                let usersController = UsersViewController()
-                usersController.tabBarItem.image = #imageLiteral(resourceName: "users")
-                usersController.tabBarItem.selectedImage = #imageLiteral(resourceName: "users-selected")
-                usersController.tabBarItem.title = "Users"
-               
-                let userNavController = UINavigationController(rootViewController: usersController)
-                
+//                let usersController = UsersViewController()
+//                usersController.tabBarItem.image = #imageLiteral(resourceName: "users")
+//                usersController.tabBarItem.selectedImage = #imageLiteral(resourceName: "users-selected")
+//                usersController.tabBarItem.title = "Users"
+//
+//                let userNavController = UINavigationController(rootViewController: usersController)
+//                
                 let taskController = TaskViewController()
                 taskController.tabBarItem.image = #imageLiteral(resourceName: "list-2")
                 taskController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-2-selected")
@@ -57,7 +57,7 @@ class CustomTabBarController : UITabBarController {
                 settingsController.title = "Settings"
                 let settingsNavController = UINavigationController(rootViewController: settingsController)
                 
-                self.viewControllers = [dashboardNavController,userNavController,taskNavController,settingsNavController]
+                self.viewControllers = [dashboardNavController,taskNavController,settingsNavController]
             } else {
                 SwiftyBeaver.info("user is not logged in giong to login controller")
                 let loginController = HomeViewController()

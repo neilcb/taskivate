@@ -24,10 +24,10 @@ class User: Equatable {
     var age: Int = 0
     var online: Bool = false
     var profileImageUrl: String?
-    
+   
     
     static func == (lhs: User, rhs: User) -> Bool {
-        return lhs.email == rhs.email
+        return lhs.email == rhs.email 
     }
    
    

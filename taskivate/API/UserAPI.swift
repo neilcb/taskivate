@@ -143,10 +143,11 @@ class UserAPI: NSObject {
         }
     }
     
-    class func updateUser(displayName: String, dob: Date, phone: String, completion: @escaping (Bool, Error?) -> Swift.Void) {
+    class func updateUser(displayName: String, firstname: String, lastName: String, dob: Date, phone: String, completion: @escaping (Bool, Error?) -> Swift.Void) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         let uid = Auth.auth().currentUser?.uid
         let email = Auth.auth().currentUser?.email
+        let url = Auth.auth().currentUser?.photoURL
         changeRequest?.displayName = displayName
         
         changeRequest?.commitChanges { (error) in
@@ -155,15 +156,13 @@ class UserAPI: NSObject {
                 completion(false, error)
             } else {
                 let user = User()
-                
-                let stringArray = Auth.auth().currentUser?.displayName?.components(separatedBy: " ")
-                if(stringArray != nil) {
-                    user.firstName = (stringArray?[0])!
-                    user.lastName = (stringArray?[1])!
-                }
-                
+                user.firstName = firstname
+                user.lastName = lastName
                 user.id = uid!
                 user.email = email!
+                user.phone = phone
+                user.dateOfBirth = dob
+                user.profileImageUrl = url?.absoluteString
                 syncUserData(user: user, completion: { (status, error) in
                     if(status) {
                         SwiftyBeaver.info("user synch success")
@@ -183,18 +182,19 @@ class UserAPI: NSObject {
     class func syncUserData(user: User, completion: @escaping (Bool, Error?) -> Swift.Void) {
         let db = Firestore.firestore()
         // user first name and last concat as display (for search)
-        var displayName = user.firstName + " " + user.lastName
         
         // get display name if available
         if let dn = Auth.auth().currentUser?.displayName {
-            displayName = dn
+            user.displayName = dn
         }
         db.collection("users").document(user.id).setData([
             "firstName": user.firstName,
             "lastName": user.lastName,
             "email": user.email,
             "prorfileImageUrl": user.profileImageUrl!,
-            "displayName": displayName,
+            "displayName": user.displayName,
+            "dob": user.dateOfBirth,
+            "phone": user.phone,
             "lastAccessDt": DateUtils.getCurrentTimestamp()
             
         ],options: SetOptions.merge()) { err in
@@ -263,6 +263,106 @@ class UserAPI: NSObject {
                     }
                 })
                 completion(true, nil)
+            }
+        }
+    }
+    
+    class func updateDisplayName(displayName: String, completion: @escaping (Bool,Error?) -> Swift.Void) {
+        
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+      
+        changeRequest?.displayName = displayName
+        
+        changeRequest?.commitChanges { (error) in
+            if let error = error {
+                print("display \(error)")
+                completion(false, error)
+            } else {
+                if let uid = Auth.auth().currentUser?.uid {
+                    let db = Firestore.firestore()
+                    db.collection("users").document(uid).setData([
+                        "displayName": displayName
+                    ],options: SetOptions.merge()) { err in
+                        if let err = err {
+                            SwiftyBeaver.error("Error saving phone to document: \(err)")
+                            completion(false,err)
+                        } else {
+                            SwiftyBeaver.info("Phone Updated")
+                            completion(true,nil)
+                        }
+                    }
+                completion(true,nil)
+                }
+            }
+        }
+    }
+    
+    class func updatePhone(phone: String, completion: @escaping (Bool,Error?) -> Swift.Void) {
+        if let uid = Auth.auth().currentUser?.uid {
+            let db = Firestore.firestore()
+            
+            db.collection("users").document(uid).setData([
+                
+                "phone": phone
+                
+            ],options: SetOptions.merge()) { err in
+                if let err = err {
+                    SwiftyBeaver.error("Error saving phone to document: \(err)")
+                    completion(false,err)
+                } else {
+                    SwiftyBeaver.info("Phone Updated")
+                    completion(true,nil)
+                    
+                }
+            }
+        }
+    }
+    
+    class func queryUserPhone(uid: String, completion: @escaping (String,Error?) -> Swift.Void) {
+        let db = Firestore.firestore()
+        if let uid = Auth.auth().currentUser?.uid {
+            
+        }
+            
+        
+    }
+    
+    class func updateFirstName(firstName: String, completion: @escaping (Bool,Error?) -> Swift.Void) {
+        if let uid = Auth.auth().currentUser?.uid {
+            let db = Firestore.firestore()
+            SwiftyBeaver.info("firstName \(firstName)")
+            db.collection("users").document(uid).setData([
+                
+                "firstName": firstName
+                
+            ],options: SetOptions.merge()) { err in
+                if let err = err {
+                    SwiftyBeaver.error("Error saving fname to document: \(err)")
+                    completion(false,err)
+                } else {
+                    SwiftyBeaver.info("fn Updated")
+                    completion(true,nil)
+                }
+            }
+        }
+    }
+    
+    class func updateLastName(lastName: String, completion: @escaping (Bool,Error?) -> Swift.Void) {
+        if let uid = Auth.auth().currentUser?.uid {
+            let db = Firestore.firestore()
+            SwiftyBeaver.info("lastname \(lastName)")
+            db.collection("users").document(uid).setData([
+                
+                "lastName": lastName
+                
+            ],options: SetOptions.merge()) { err in
+                if let err = err {
+                    SwiftyBeaver.error("Error saving fname to document: \(err)")
+                    completion(false,err)
+                } else {
+                    SwiftyBeaver.info("ln Updated")
+                    completion(true,nil)
+                }
             }
         }
     }

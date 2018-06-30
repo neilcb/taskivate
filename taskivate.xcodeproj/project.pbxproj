@@ -27,6 +27,7 @@
 		282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282B238620CD978D00F7B5ED /* UserInfoCell.swift */; };
 		284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */; };
 		284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* UserProfileController.swift */; };
+		2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */; };
 		28625094209AB87500BD625B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625093209AB87500BD625B /* AppDelegate.swift */; };
 		28625096209AB87500BD625B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625095209AB87500BD625B /* ViewController.swift */; };
 		28625099209AB87500BD625B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28625097209AB87500BD625B /* Main.storyboard */; };
@@ -37,6 +38,10 @@
 		286250C2209ABA5600BD625B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 286250C1209ABA5600BD625B /* Podfile */; };
 		287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B720AF84ED00891476 /* AccountOptionsTableView.swift */; };
 		287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B920AF86E700891476 /* SettingsEnum.swift */; };
+		288CD7EB20E748DA0082AA8E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EA20E748DA0082AA8E /* TaskCell.swift */; };
+		288CD7ED20E74E3E0082AA8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */; };
+		288CD7EF20E7502B0082AA8E /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */; };
+		288CD7F120E823880082AA8E /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7F020E823880082AA8E /* BaseCell.swift */; };
 		28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */; };
 		28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */; };
 		28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC8209D316E00BF2A89 /* DashboardController.swift */; };
@@ -98,6 +103,7 @@
 		282DBC91209ABD4F0034DEF8 /* taskivate.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = taskivate.entitlements; sourceTree = "<group>"; };
 		284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUIProperties.swift; sourceTree = "<group>"; };
 		284535EA20C4D53900A0BE8B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhoneCell.swift; sourceTree = "<group>"; };
 		28625090209AB87500BD625B /* taskivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28625093209AB87500BD625B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28625095209AB87500BD625B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +120,10 @@
 		286250C1209ABA5600BD625B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		287103B720AF84ED00891476 /* AccountOptionsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionsTableView.swift; sourceTree = "<group>"; };
 		287103B920AF86E700891476 /* SettingsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnum.swift; sourceTree = "<group>"; };
+		288CD7EA20E748DA0082AA8E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		288CD7F020E823880082AA8E /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
 		28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28B25FC8209D316E00BF2A89 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -255,6 +265,8 @@
 			isa = PBXGroup;
 			children = (
 				28B7E700209E2C7D009A8C1B /* MenuBar.swift */,
+				282B238620CD978D00F7B5ED /* UserInfoCell.swift */,
+				2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -269,7 +281,6 @@
 		28E849C1209AC084005C5533 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				282B238620CD978D00F7B5ED /* UserInfoCell.swift */,
 				28FBE63E209C28290031D144 /* HomeViewController.swift */,
 				28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */,
 				28FBE63C209C27D90031D144 /* DashBoardViewController.swift */,
@@ -285,6 +296,10 @@
 				28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */,
 				28DF3BE520C263160009737D /* LaunchViewController.swift */,
 				284535EA20C4D53900A0BE8B /* UserProfileController.swift */,
+				288CD7EA20E748DA0082AA8E /* TaskCell.swift */,
+				288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */,
+				288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */,
+				288CD7F020E823880082AA8E /* BaseCell.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -578,6 +593,7 @@
 				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -603,6 +619,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -648,6 +665,7 @@
 				2823C4ED209AC80B007A2660 /* Notification.Name.swift in Sources */,
 				2823C4E4209AC732007A2660 /* UserCell.swift in Sources */,
 				28625096209AB87500BD625B /* ViewController.swift in Sources */,
+				2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */,
 				28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */,
 				28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */,
 				28F7C67020B5B52B00095260 /* UserProfileController_old.swift in Sources */,
@@ -659,16 +677,20 @@
 				2823C4E5209AC732007A2660 /* UserSearchViewController.swift in Sources */,
 				28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */,
 				28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */,
+				288CD7EF20E7502B0082AA8E /* BaseTableViewController.swift in Sources */,
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
+				288CD7EB20E748DA0082AA8E /* TaskCell.swift in Sources */,
 				284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
 				28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */,
 				287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */,
 				2823C501209AC917007A2660 /* AppUtility.swift in Sources */,
 				28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */,
+				288CD7ED20E74E3E0082AA8E /* BaseViewController.swift in Sources */,
 				28625094209AB87500BD625B /* AppDelegate.swift in Sources */,
 				28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */,
 				2823C4E6209AC732007A2660 /* UsersViewController.swift in Sources */,
+				288CD7F120E823880082AA8E /* BaseCell.swift in Sources */,
 				28B7E703209F8A13009A8C1B /* TestViewController.swift in Sources */,
 				2823C4FE209AC917007A2660 /* DateUtils.swift in Sources */,
 				2823C4EF209AC80B007A2660 /* ViewController+Extension.swift in Sources */,
