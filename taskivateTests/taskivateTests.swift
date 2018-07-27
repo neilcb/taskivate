@@ -7,8 +7,7 @@
 //
 
 import XCTest
-@testable import taskivate
-import Firebase
+
 
 class taskivateTests: XCTestCase {
     
@@ -23,8 +22,8 @@ class taskivateTests: XCTestCase {
     }
     
     func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        print("test")
+       // SwiftyBeaver.info("test")
     }
     
     func testPerformanceExample() {

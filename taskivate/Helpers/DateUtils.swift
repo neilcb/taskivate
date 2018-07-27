@@ -16,7 +16,16 @@ class DateUtils: NSObject {
         let time = NSDate(timeIntervalSince1970: TimeInterval(myTimeInterval))
         return time
     }
-    
+    // get formatted date
+    static func getFormattedDate(date: Date) -> String {
+        let dateformatter = DateFormatter()
+        
+        dateformatter.dateFormat = "MM/dd/yy h:mm a"
+        
+        let dateStr = dateformatter.string(from: date)
+        
+        return dateStr
+    }
     // something here
 
 }

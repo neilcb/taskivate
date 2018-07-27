@@ -93,7 +93,7 @@ class HomeViewController: UIViewController, FUIAuthDelegate {
             }
             
             
-            let dashBoardViewController = DasboardViewController()
+            let dashBoardViewController = DashbaordCollectionVC()
            
             if let dnavc = self.navigationController {
                 dnavc.pushViewController(dashBoardViewController, animated: true)

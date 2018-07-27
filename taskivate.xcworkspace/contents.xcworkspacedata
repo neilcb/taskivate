@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/neil/Desktop/taskivate_projects/taskivate_ios/taskivate/taskivate/Model/TaskInfoElement.swift">
+   </FileRef>
+   <FileRef
       location = "group:taskivate.xcodeproj">
    </FileRef>
    <FileRef

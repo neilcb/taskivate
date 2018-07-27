@@ -7,7 +7,7 @@
 //
 
 import XCTest
-
+import SwiftyBeaver
 class taskivateUITests: XCTestCase {
         
     override func setUp() {
@@ -28,7 +28,9 @@ class taskivateUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
+        func testExample() {
+        SwiftyBeaver.info("test")
+        print("blalbafsdfsdfaf")
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
     }

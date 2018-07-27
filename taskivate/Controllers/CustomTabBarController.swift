@@ -32,12 +32,24 @@ class CustomTabBarController : UITabBarController {
         Auth.auth().addStateDidChangeListener { (auth, user) in
             if user != nil {
                 
-                let dashboardBoardController = DashboardController()
-                dashboardBoardController.tabBarItem.image = #imageLiteral(resourceName: "list-1")
-                dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-1-selected")
-                dashboardBoardController.title = "Dashboard"
-                let dashboardNavController = UINavigationController(rootViewController: dashboardBoardController)
+//                let dashboardBoardController = DashboardController()
+//                dashboardBoardController.tabBarItem.image = #imageLiteral(resourceName: "list-1")
+//                dashboardBoardController.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-1-selected")
+//                dashboardBoardController.title = "Dashboard"
+//                let dashboardNavController = UINavigationController(rootViewController: dashboardBoardController)
+//
+                let flowLayout = UICollectionViewFlowLayout()
+                //let customCollectionViewController = DashbaordCollectionView(collectionViewLayout: flowLayout)
+                flowLayout.minimumLineSpacing = 0
+                flowLayout.minimumInteritemSpacing = 0
+                let dashboardCollectionVC = DashbaordCollectionVC(collectionViewLayout: flowLayout)
+                dashboardCollectionVC.tabBarItem.image = #imageLiteral(resourceName: "list-1")
+                dashboardCollectionVC.tabBarItem.selectedImage = #imageLiteral(resourceName: "list-1-selected")
+                dashboardCollectionVC.title = "Dashboard"
+                let collectionViewNavController = UINavigationController(rootViewController: dashboardCollectionVC)
+//
                 
+              
 //                let usersController = UsersViewController()
 //                usersController.tabBarItem.image = #imageLiteral(resourceName: "users")
 //                usersController.tabBarItem.selectedImage = #imageLiteral(resourceName: "users-selected")
@@ -57,7 +69,7 @@ class CustomTabBarController : UITabBarController {
                 settingsController.title = "Settings"
                 let settingsNavController = UINavigationController(rootViewController: settingsController)
                 
-                self.viewControllers = [dashboardNavController,taskNavController,settingsNavController]
+                self.viewControllers = [collectionViewNavController, taskNavController,settingsNavController]
             } else {
                 SwiftyBeaver.info("user is not logged in giong to login controller")
                 let loginController = HomeViewController()

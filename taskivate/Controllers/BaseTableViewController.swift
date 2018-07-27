@@ -69,6 +69,7 @@ class BaseTableViewController<T: BaseCell<C>, C>: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellId, for: indexPath) as! BaseCell<C>
         cell.item = self.items[indexPath.row]
+        
         return cell
     }
     

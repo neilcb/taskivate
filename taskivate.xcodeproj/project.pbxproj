@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2021DCEE0AF08530097DAF2D /* Pods_taskivateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE94F8F887420817259C2F6B /* Pods_taskivateUITests.framework */; };
 		2823C4E4209AC732007A2660 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4E1209AC72F007A2660 /* UserCell.swift */; };
 		2823C4E5209AC732007A2660 /* UserSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4E2209AC730007A2660 /* UserSearchViewController.swift */; };
 		2823C4E6209AC732007A2660 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4E3209AC732007A2660 /* UsersViewController.swift */; };
@@ -25,6 +26,10 @@
 		2823C501209AC917007A2660 /* AppUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FB209AC916007A2660 /* AppUtility.swift */; };
 		2823C502209AC917007A2660 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2823C4FC209AC917007A2660 /* Constants.swift */; };
 		282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 282B238620CD978D00F7B5ED /* UserInfoCell.swift */; };
+		2843BCF72104FCEE008A291C /* TaskInfoElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843BCF62104FCEE008A291C /* TaskInfoElement.swift */; };
+		2843BCF921050304008A291C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843BCF821050304008A291C /* Task.swift */; };
+		2843BCFC210538CA008A291C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843BCFB210538CA008A291C /* AddTaskViewController.swift */; };
+		2843BCFE210ABFDE008A291C /* TaskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843BCFD210ABFDE008A291C /* TaskAPI.swift */; };
 		284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */; };
 		284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* UserProfileController.swift */; };
 		2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */; };
@@ -38,10 +43,14 @@
 		286250C2209ABA5600BD625B /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 286250C1209ABA5600BD625B /* Podfile */; };
 		287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B720AF84ED00891476 /* AccountOptionsTableView.swift */; };
 		287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 287103B920AF86E700891476 /* SettingsEnum.swift */; };
-		288CD7EB20E748DA0082AA8E /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EA20E748DA0082AA8E /* TaskCell.swift */; };
+		288CD7EB20E748DA0082AA8E /* TaskTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EA20E748DA0082AA8E /* TaskTableCell.swift */; };
 		288CD7ED20E74E3E0082AA8E /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */; };
 		288CD7EF20E7502B0082AA8E /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */; };
 		288CD7F120E823880082AA8E /* BaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7F020E823880082AA8E /* BaseCell.swift */; };
+		288CD7F320EAFB450082AA8E /* BaseCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7F220EAFB450082AA8E /* BaseCollectionViewController.swift */; };
+		288CD7F520EAFB6F0082AA8E /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 288CD7F420EAFB6F0082AA8E /* BaseCollectionViewCell.swift */; };
+		28A2C8F220F1D1DF00E620E8 /* DashbaordCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28A2C8F120F1D1DF00E620E8 /* DashbaordCollectionView.swift */; };
+		28AC747F20F5A264006D17B5 /* DashbaordCollectionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AC747E20F5A264006D17B5 /* DashbaordCollectionVC.swift */; };
 		28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */; };
 		28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */; };
 		28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28B25FC8209D316E00BF2A89 /* DashboardController.swift */; };
@@ -56,12 +65,10 @@
 		28E849EA209AC2A5005C5533 /* Sansation-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */; };
 		28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E849EB209AC353005C5533 /* CustomTabBarController.swift */; };
 		28F7C67020B5B52B00095260 /* UserProfileController_old.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */; };
-		28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63C209C27D90031D144 /* DashBoardViewController.swift */; };
 		28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63E209C28290031D144 /* HomeViewController.swift */; };
 		28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */; };
 		28FBE6BF209C2F2E0031D144 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28FBE6BE209C2F2E0031D144 /* GoogleService-Info.plist */; };
 		59C0B44893CD11359E2B91C7 /* Pods_taskivate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 59D403489BE3F92048686904 /* Pods_taskivate.framework */; };
-		D29E0ED8B08D99EA90F8FB49 /* Pods_taskivateUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FE94F8F887420817259C2F6B /* Pods_taskivateUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +89,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01F14F3700B2C3C87C8BB6FE /* Pods-taskivateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		2823C4E1209AC72F007A2660 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
 		2823C4E2209AC730007A2660 /* UserSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSearchViewController.swift; sourceTree = "<group>"; };
 		2823C4E3209AC732007A2660 /* UsersViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
@@ -101,6 +109,10 @@
 		2823C4FC209AC917007A2660 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		282B238620CD978D00F7B5ED /* UserInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoCell.swift; sourceTree = "<group>"; };
 		282DBC91209ABD4F0034DEF8 /* taskivate.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = taskivate.entitlements; sourceTree = "<group>"; };
+		2843BCF62104FCEE008A291C /* TaskInfoElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskInfoElement.swift; path = /Users/neil/Desktop/taskivate_projects/taskivate_ios/taskivate/taskivate/Model/TaskInfoElement.swift; sourceTree = "<absolute>"; };
+		2843BCF821050304008A291C /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		2843BCFB210538CA008A291C /* AddTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		2843BCFD210ABFDE008A291C /* TaskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPI.swift; sourceTree = "<group>"; };
 		284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUIProperties.swift; sourceTree = "<group>"; };
 		284535EA20C4D53900A0BE8B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhoneCell.swift; sourceTree = "<group>"; };
@@ -120,10 +132,14 @@
 		286250C1209ABA5600BD625B /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		287103B720AF84ED00891476 /* AccountOptionsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountOptionsTableView.swift; sourceTree = "<group>"; };
 		287103B920AF86E700891476 /* SettingsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsEnum.swift; sourceTree = "<group>"; };
-		288CD7EA20E748DA0082AA8E /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		288CD7EA20E748DA0082AA8E /* TaskTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTableCell.swift; sourceTree = "<group>"; };
 		288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		288CD7F020E823880082AA8E /* BaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCell.swift; sourceTree = "<group>"; };
+		288CD7F220EAFB450082AA8E /* BaseCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewController.swift; sourceTree = "<group>"; };
+		288CD7F420EAFB6F0082AA8E /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		28A2C8F120F1D1DF00E620E8 /* DashbaordCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashbaordCollectionView.swift; sourceTree = "<group>"; };
+		28AC747E20F5A264006D17B5 /* DashbaordCollectionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashbaordCollectionVC.swift; sourceTree = "<group>"; };
 		28B25FC2209CF18D00BF2A89 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		28B25FC6209D2E6B00BF2A89 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		28B25FC8209D316E00BF2A89 /* DashboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardController.swift; sourceTree = "<group>"; };
@@ -138,15 +154,14 @@
 		28E849E4209AC2A5005C5533 /* Sansation-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sansation-Bold.ttf"; sourceTree = "<group>"; };
 		28E849EB209AC353005C5533 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController_old.swift; sourceTree = "<group>"; };
-		28FBE63C209C27D90031D144 /* DashBoardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DashBoardViewController.swift; sourceTree = "<group>"; };
 		28FBE63E209C28290031D144 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskivateAuthViewController.swift; sourceTree = "<group>"; };
 		28FBE6BE209C2F2E0031D144 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		39BCB79730C3B6FC8F9D3A03 /* Pods-taskivate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivate.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskivate/Pods-taskivate.release.xcconfig"; sourceTree = "<group>"; };
 		3C803028BB7627596AD68378 /* Pods-taskivate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivate.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskivate/Pods-taskivate.debug.xcconfig"; sourceTree = "<group>"; };
-		4BFD1CE82ACCBE202D259D69 /* Pods-taskivateUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivateUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		59D403489BE3F92048686904 /* Pods_taskivate.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskivate.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6024CA41CCF6854EDEA9C755 /* Pods-taskivateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivateUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests.release.xcconfig"; sourceTree = "<group>"; };
+		62EE98BAD38F19680CD7C221 /* Pods-taskivateUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-taskivateUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A6929789AB630A55100EB098 /* Pods_taskivateTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskivateTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE94F8F887420817259C2F6B /* Pods_taskivateUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_taskivateUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -170,7 +185,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D29E0ED8B08D99EA90F8FB49 /* Pods_taskivateUITests.framework in Frameworks */,
+				2021DCEE0AF08530097DAF2D /* Pods_taskivateUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,10 +197,18 @@
 			children = (
 				3C803028BB7627596AD68378 /* Pods-taskivate.debug.xcconfig */,
 				39BCB79730C3B6FC8F9D3A03 /* Pods-taskivate.release.xcconfig */,
-				4BFD1CE82ACCBE202D259D69 /* Pods-taskivateUITests.debug.xcconfig */,
-				6024CA41CCF6854EDEA9C755 /* Pods-taskivateUITests.release.xcconfig */,
+				01F14F3700B2C3C87C8BB6FE /* Pods-taskivateUITests.debug.xcconfig */,
+				62EE98BAD38F19680CD7C221 /* Pods-taskivateUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		2843BCFA2105033D008A291C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2843BCF62104FCEE008A291C /* TaskInfoElement.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		284535E720C4CD2C00A0BE8B /* Form */ = {
@@ -222,6 +245,7 @@
 		28625092209AB87500BD625B /* taskivate */ = {
 			isa = PBXGroup;
 			children = (
+				2843BCFA2105033D008A291C /* ViewModel */,
 				284535E720C4CD2C00A0BE8B /* Form */,
 				28DF3BE220C260610009737D /* Utils */,
 				28B7E6FF209E2C61009A8C1B /* View */,
@@ -267,6 +291,10 @@
 				28B7E700209E2C7D009A8C1B /* MenuBar.swift */,
 				282B238620CD978D00F7B5ED /* UserInfoCell.swift */,
 				2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */,
+				288CD7F020E823880082AA8E /* BaseCell.swift */,
+				2823C4E1209AC72F007A2660 /* UserCell.swift */,
+				288CD7EA20E748DA0082AA8E /* TaskTableCell.swift */,
+				288CD7F420EAFB6F0082AA8E /* BaseCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -283,8 +311,6 @@
 			children = (
 				28FBE63E209C28290031D144 /* HomeViewController.swift */,
 				28FBE63F209C282C0031D144 /* TaskivateAuthViewController.swift */,
-				28FBE63C209C27D90031D144 /* DashBoardViewController.swift */,
-				2823C4E1209AC72F007A2660 /* UserCell.swift */,
 				2823C4E2209AC730007A2660 /* UserSearchViewController.swift */,
 				2823C4E3209AC732007A2660 /* UsersViewController.swift */,
 				28E849EB209AC353005C5533 /* CustomTabBarController.swift */,
@@ -296,10 +322,12 @@
 				28F7C66F20B5B52B00095260 /* UserProfileController_old.swift */,
 				28DF3BE520C263160009737D /* LaunchViewController.swift */,
 				284535EA20C4D53900A0BE8B /* UserProfileController.swift */,
-				288CD7EA20E748DA0082AA8E /* TaskCell.swift */,
 				288CD7EC20E74E3E0082AA8E /* BaseViewController.swift */,
 				288CD7EE20E7502B0082AA8E /* BaseTableViewController.swift */,
-				288CD7F020E823880082AA8E /* BaseCell.swift */,
+				288CD7F220EAFB450082AA8E /* BaseCollectionViewController.swift */,
+				28A2C8F120F1D1DF00E620E8 /* DashbaordCollectionView.swift */,
+				28AC747E20F5A264006D17B5 /* DashbaordCollectionVC.swift */,
+				2843BCFB210538CA008A291C /* AddTaskViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -310,6 +338,7 @@
 				2823C4F2209AC87B007A2660 /* Base.swift */,
 				2823C4F3209AC87C007A2660 /* UserAPI.swift */,
 				2823C4F1209AC879007A2660 /* UserError.swift */,
+				2843BCFD210ABFDE008A291C /* TaskAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -332,6 +361,7 @@
 			children = (
 				2823C4E7209AC7E6007A2660 /* User.swift */,
 				287103B920AF86E700891476 /* SettingsEnum.swift */,
+				2843BCF821050304008A291C /* Task.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -365,6 +395,7 @@
 			children = (
 				59D403489BE3F92048686904 /* Pods_taskivate.framework */,
 				FE94F8F887420817259C2F6B /* Pods_taskivateUITests.framework */,
+				A6929789AB630A55100EB098 /* Pods_taskivateTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -414,10 +445,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 286250BE209AB87600BD625B /* Build configuration list for PBXNativeTarget "taskivateUITests" */;
 			buildPhases = (
-				76D01A48BEB529E5F6F00129 /* [CP] Check Pods Manifest.lock */,
+				DB00110A03864296785BC373 /* [CP] Check Pods Manifest.lock */,
 				286250AB209AB87600BD625B /* Sources */,
 				286250AC209AB87600BD625B /* Frameworks */,
 				286250AD209AB87600BD625B /* Resources */,
+				9086DE129420FE685B74F9D1 /* [CP] Embed Pods Frameworks */,
+				7B35B6075C3E77196036D1E6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -525,22 +558,36 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		76D01A48BEB529E5F6F00129 /* [CP] Check Pods Manifest.lock */ = {
+		7B35B6075C3E77196036D1E6 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
+				"${SRCROOT}/Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseFacebookAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseGoogleAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebasePhoneAuthUI.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/FirebaseUI/FirebaseTwitterAuthUI.bundle",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-taskivateUITests-checkManifestLockResult.txt",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseFacebookAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseGoogleAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebasePhoneAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/FirebaseTwitterAuthUI.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterKitResources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TwitterShareExtensionUIResources.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		85E5E01772A8A9FB4F5EFC29 /* [CP] Copy Pods Resources */ = {
@@ -575,13 +622,13 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taskivate/Pods-taskivate-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C6CBA1C6BEBB4410E8EA0787 /* [CP] Embed Pods Frameworks */ = {
+		9086DE129420FE685B74F9D1 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-taskivate/Pods-taskivate-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -595,6 +642,8 @@
 				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
 				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
@@ -621,6 +670,74 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ProtoRPC.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxLibrary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-taskivateUITests/Pods-taskivateUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6CBA1C6BEBB4410E8EA0787 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-taskivate/Pods-taskivate-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageRow/ImageRow.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQMessagesViewController/JSQMessagesViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/JSQSystemSoundPlayer/JSQSystemSoundPlayer.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
+				"${PODS_ROOT}/TwitterCore/iOS/TwitterCore.framework",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-ProtoRPC/ProtoRPC.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-RxLibrary/RxLibrary.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageRow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQMessagesViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSQSystemSoundPlayer.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TwitterCore.framework",
@@ -655,6 +772,24 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		DB00110A03864296785BC373 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-taskivateUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -662,34 +797,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				288CD7F320EAFB450082AA8E /* BaseCollectionViewController.swift in Sources */,
+				28A2C8F220F1D1DF00E620E8 /* DashbaordCollectionView.swift in Sources */,
 				2823C4ED209AC80B007A2660 /* Notification.Name.swift in Sources */,
 				2823C4E4209AC732007A2660 /* UserCell.swift in Sources */,
 				28625096209AB87500BD625B /* ViewController.swift in Sources */,
 				2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */,
-				28FBE63D209C27D90031D144 /* DashBoardViewController.swift in Sources */,
 				28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */,
+				2843BCF921050304008A291C /* Task.swift in Sources */,
 				28F7C67020B5B52B00095260 /* UserProfileController_old.swift in Sources */,
 				2823C500209AC917007A2660 /* LogoutUtils.swift in Sources */,
+				2843BCF72104FCEE008A291C /* TaskInfoElement.swift in Sources */,
 				28B25FC3209CF18D00BF2A89 /* TaskViewController.swift in Sources */,
 				282B238720CD978D00F7B5ED /* UserInfoCell.swift in Sources */,
 				287103B820AF84ED00891476 /* AccountOptionsTableView.swift in Sources */,
 				2823C4EE209AC80B007A2660 /* UIImageView+Download.swift in Sources */,
 				2823C4E5209AC732007A2660 /* UserSearchViewController.swift in Sources */,
 				28B25FC7209D2E6B00BF2A89 /* SettingsViewController.swift in Sources */,
+				2843BCFC210538CA008A291C /* AddTaskViewController.swift in Sources */,
 				28FBE641209C282C0031D144 /* TaskivateAuthViewController.swift in Sources */,
 				288CD7EF20E7502B0082AA8E /* BaseTableViewController.swift in Sources */,
 				28FBE640209C282C0031D144 /* HomeViewController.swift in Sources */,
-				288CD7EB20E748DA0082AA8E /* TaskCell.swift in Sources */,
+				288CD7EB20E748DA0082AA8E /* TaskTableCell.swift in Sources */,
 				284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */,
 				2823C4F5209AC87C007A2660 /* Base.swift in Sources */,
 				28DF3BE620C263160009737D /* LaunchViewController.swift in Sources */,
+				28AC747F20F5A264006D17B5 /* DashbaordCollectionVC.swift in Sources */,
 				287103BA20AF86E700891476 /* SettingsEnum.swift in Sources */,
 				2823C501209AC917007A2660 /* AppUtility.swift in Sources */,
 				28B7E701209E2C7D009A8C1B /* MenuBar.swift in Sources */,
 				288CD7ED20E74E3E0082AA8E /* BaseViewController.swift in Sources */,
+				2843BCFE210ABFDE008A291C /* TaskAPI.swift in Sources */,
 				28625094209AB87500BD625B /* AppDelegate.swift in Sources */,
 				28E849EC209AC353005C5533 /* CustomTabBarController.swift in Sources */,
 				2823C4E6209AC732007A2660 /* UsersViewController.swift in Sources */,
+				288CD7F520EAFB6F0082AA8E /* BaseCollectionViewCell.swift in Sources */,
 				288CD7F120E823880082AA8E /* BaseCell.swift in Sources */,
 				28B7E703209F8A13009A8C1B /* TestViewController.swift in Sources */,
 				2823C4FE209AC917007A2660 /* DateUtils.swift in Sources */,
@@ -915,7 +1057,7 @@
 		286250BC209AB87600BD625B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
@@ -937,7 +1079,7 @@
 		286250BD209AB87600BD625B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
@@ -958,9 +1100,9 @@
 		};
 		286250BF209AB87600BD625B /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 4BFD1CE82ACCBE202D259D69 /* Pods-taskivateUITests.debug.xcconfig */;
+			baseConfigurationReference = 01F14F3700B2C3C87C8BB6FE /* Pods-taskivateUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateUITests/Info.plist;
@@ -980,9 +1122,9 @@
 		};
 		286250C0209AB87600BD625B /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6024CA41CCF6854EDEA9C755 /* Pods-taskivateUITests.release.xcconfig */;
+			baseConfigurationReference = 62EE98BAD38F19680CD7C221 /* Pods-taskivateUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 22VG54K345;
 				INFOPLIST_FILE = taskivateUITests/Info.plist;

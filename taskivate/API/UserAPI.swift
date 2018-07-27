@@ -143,6 +143,9 @@ class UserAPI: NSObject {
         }
     }
     
+    
+    
+    
     class func updateUser(displayName: String, firstname: String, lastName: String, dob: Date, phone: String, completion: @escaping (Bool, Error?) -> Swift.Void) {
         let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
         let uid = Auth.auth().currentUser?.uid
@@ -318,14 +321,7 @@ class UserAPI: NSObject {
         }
     }
     
-    class func queryUserPhone(uid: String, completion: @escaping (String,Error?) -> Swift.Void) {
-        let db = Firestore.firestore()
-        if let uid = Auth.auth().currentUser?.uid {
-            
-        }
-            
-        
-    }
+   
     
     class func updateFirstName(firstName: String, completion: @escaping (Bool,Error?) -> Swift.Void) {
         if let uid = Auth.auth().currentUser?.uid {
