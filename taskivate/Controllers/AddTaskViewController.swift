@@ -9,10 +9,16 @@
 import UIKit
 import SwiftyBeaver
 import Eureka
+import Firebase
+import FirebaseAuthUI
+import NotificationCenter
 import ImageRow
 
 class AddTaskViewController: FormViewController {
     var taskViewModel: TaskViewModel!
+    
+    fileprivate(set) var auth:Auth?
+    fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     
     static let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -185,7 +191,25 @@ class AddTaskViewController: FormViewController {
     // MARK: - Actions
     @objc fileprivate func saveButtonPressed(_ sender: UIBarButtonItem) {
         if form.validate().isEmpty {
-            _ = navigationController?.popViewController(animated: true)
+            if let id = Auth.auth().currentUser?.uid {
+                SwiftyBeaver.info(taskViewModel.getTask())
+                
+                
+                TaskAPI.save(uid: id, task: taskViewModel.getTask(), completion:  { (status, error) in
+                    if let err = error {
+                       SwiftyBeaver.error("error saving task \(err)")
+                    } else {
+                        SwiftyBeaver.info("task \(String(describing: self.taskViewModel.getTask().title)) saved ok")
+                        self.navigationController?.popViewController(animated: true)
+                    }
+//
+               })
+                
+            } else {
+                SwiftyBeaver.info("user is not logged in giong to login controller")
+                let loginController = HomeViewController()
+                self.navigationController?.pushViewController(loginController, animated: true)
+            }
         }
     }
     
@@ -233,6 +257,10 @@ extension AddTaskViewController {
     class TaskViewModel {
         
         private let task: Task
+        
+        func getTask() -> Task {
+            return self.task
+        }
         
         var title: String? {
             get {
