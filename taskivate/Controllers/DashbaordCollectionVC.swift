@@ -21,10 +21,30 @@ class DashbaordCollectionVC: UICollectionViewController, UICollectionViewDelegat
     var sizeForItems: [CGSize]!
     var today = Date()
     var tasksCompleted = 0
+    
+    var profileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "user-filled-blue-50")
+        imageView.frame = CGRect(x:8.0,y:8.0, width:40,height:40.0)
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.layer.cornerRadius = 20
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderWidth = 1
+        imageView.isUserInteractionEnabled = true
+        imageView.contentMode = .scaleAspectFill
+        
+        
+        return imageView
+        
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.title = "Dashboard"
         let width = view.frame.width
-        
+        setUpProfileImage()
         customElements = [
             //SectionHeaderElement(sectionTitle: "DASHBOARD", size: .init(width: width, height: 30)),
             DashBoardElement(image: #imageLiteral(resourceName: "list-2"), completedTasks: 10, remainingTaks: 10, totalTasks: 10, size: .init(width: width, height: 300)),
@@ -48,20 +68,51 @@ class DashbaordCollectionVC: UICollectionViewController, UICollectionViewDelegat
      
         self.collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         
-         //collectionView?.backgroundColor = UIColor(r: 67, g: 133, b: 203)
+
         collectionView?.backgroundColor = UIColor.white
         
-        if let profileImageUrl = Auth.auth().currentUser?.photoURL {
-            self.navigationItem.setUpProfileImage(urlString: profileImageUrl.absoluteString)
-        }
         
-        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTaped(recognizer:)))
-        singleTap.numberOfTapsRequired = 1;
-        profileImageView.addGestureRecognizer(singleTap)
+
         
+      
+       
         
         // Do any additional setup after loading the view.
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        //setUpProfileImage()
+    }
+    
+    // todo make this work in an extension or subclass it
+    func setUpProfileImage() {
+        
+        let widthConstraint = profileImageView.widthAnchor.constraint(equalToConstant: 40)
+        let heightConstraint = profileImageView.heightAnchor.constraint(equalToConstant: 40)
+
+        heightConstraint.isActive = true
+        widthConstraint.isActive = true
+
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -25
+
+        let imageItem = UIBarButtonItem.init(customView: profileImageView)
+
+        let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTaped(recognizer:)))
+        singleTap.numberOfTapsRequired = 1;
+        profileImageView.addGestureRecognizer(singleTap)
+
+        navigationItem.leftBarButtonItems =  [negativeSpacer,imageItem]
+
+        if let profileImageUrl = Auth.auth().currentUser?.photoURL {
+            self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
+        }
+
+
+    }
+    
+   
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -134,27 +185,9 @@ class DashbaordCollectionVC: UICollectionViewController, UICollectionViewDelegat
         SwiftyBeaver.info(customElements[indexPath.row].size!)
         return customElements[indexPath.row].size!
 
-        //        if(indexPath.item == 0) {
-//            return CGSize(width: view.frame.width, height: 400)
-//        }
-       
-       // return CGSize(width: view.frame.width, height: 200)
-        
+      
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath)
-//
-//        if(indexPath.item == 0) {
-//
-//        }
-//        header.backgroundColor = .red
-//        return header
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//         return CGSize(width: view.frame.width, height: 50)
-//    }
     // MARK: UICollectionViewDelegate
 
     /*

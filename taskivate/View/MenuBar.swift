@@ -77,6 +77,8 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         cell.imageView.tag = indexPath.item
         cell.tintColor = UIColor(r: 2, g: 24, b: 39)
       //  cell.layer.borderColor = UIColor.white.cgColor
+        
+        SwiftyBeaver.info("item \(indexPath.item)")
         return cell
     }
     

@@ -191,6 +191,35 @@ extension Task {
             reminderDate = dueDate.addingTimeInterval(newValue.timeInterval)
         }
     }
+    
+    func mapTask(dictionary: [String: Any]) -> Task {
+        
+        let mappedTask = Task()
+        
+        if let taskName = (dictionary["title"]) {
+            mappedTask.title = (taskName as! String)
+        }
+        
+        if let dueDate = (dictionary["dueDate"]) {
+            mappedTask.dueDate = dueDate as! Date
+        }
+//        "Home 🏠"
+//        dueDate
+//        August 5, 2018 at 1:44:52 PM UTC-7
+//        priority
+//        "!!!"
+//        reminder
+//        "None"
+//        repeats
+//        "Never"
+//        status
+//        "In Progress"
+//        subcategory
+//        "Clean"
+//        title
+//        "Fdasfasffasdf"
+        return mappedTask
+    }
 }
 
 extension Date {

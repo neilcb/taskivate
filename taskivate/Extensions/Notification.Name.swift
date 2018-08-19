@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 extension Notification.Name {
     static let setParentId = Notification.Name("parentId")
-    static let deleteTaskNotification = Notification.Name("delete Task")
-    static let savedTaskNotification = Notification.Name("save Task")
+    static let didDeleteTaskNotification = Notification.Name("deleteTask")
+    static let didSaveTaskNotification = Notification.Name("saveTask")
     
 }

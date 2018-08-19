@@ -46,6 +46,7 @@ class TaskAPI: NSObject {
             "category": cat,
             "subcategory": task.subCategory!,
             "dueDate": task.dueDate,
+            "priority": task.priority.rawValue,
             "repeats": task.repeats.rawValue,
             "reminder": task.reminder.rawValue,
             "status": task.status.rawValue
@@ -53,8 +54,10 @@ class TaskAPI: NSObject {
         ]) { err in
             if let err = err {
                 print("Error writing document: \(err)")
+                completion(false,err)
             } else {
                 print("Document successfully written!")
+                completion(true,nil)
             }
         }
     }
@@ -74,4 +77,36 @@ class TaskAPI: NSObject {
             }
         }
     }
+    
+    class func fetchTasksByDate(uid: String?, startDate: Date, endDate:Date, completion: @escaping ([Task], Error?) -> Swift.Void) {
+        let db = Firestore.firestore()
+        var tasks = [Task]()
+        
+        if uid == nil {
+            // get form current user Auth.auth
+        }
+       
+        let query = db.collection("users").document(uid!).collection("tasks").order(by: "dueDate", descending: false).whereField("dueDate", isGreaterThan: startDate).whereField("dueDate", isLessThan: endDate)
+        
+        query.getDocuments(completion: { (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completion([Task](),err)
+            } else {
+                for document in (querySnapshot?.documents)! {
+                    SwiftyBeaver.info(document.data())
+                    var task = Task()
+                    task = task.mapTask(dictionary: document.data())
+                    tasks.append(task)
+                }
+                completion(tasks,nil)
+            }
+               
+        })
+    }
+    
+    
+   
+   
 }

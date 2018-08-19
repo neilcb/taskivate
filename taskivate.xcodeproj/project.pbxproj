@@ -32,6 +32,7 @@
 		2843BCFE210ABFDE008A291C /* TaskAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2843BCFD210ABFDE008A291C /* TaskAPI.swift */; };
 		284535E920C4CD9F00A0BE8B /* FormItemUIProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */; };
 		284535EB20C4D53900A0BE8B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284535EA20C4D53900A0BE8B /* UserProfileController.swift */; };
+		2850F70A211FBA280005FA6B /* CustomNavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2850F709211FBA280005FA6B /* CustomNavigationItem.swift */; };
 		2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */; };
 		28625094209AB87500BD625B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625093209AB87500BD625B /* AppDelegate.swift */; };
 		28625096209AB87500BD625B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28625095209AB87500BD625B /* ViewController.swift */; };
@@ -115,6 +116,7 @@
 		2843BCFD210ABFDE008A291C /* TaskAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskAPI.swift; sourceTree = "<group>"; };
 		284535E820C4CD9F00A0BE8B /* FormItemUIProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormItemUIProperties.swift; sourceTree = "<group>"; };
 		284535EA20C4D53900A0BE8B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		2850F709211FBA280005FA6B /* CustomNavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationItem.swift; sourceTree = "<group>"; };
 		2851B1E120D47D0B009088A6 /* UserPhoneCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPhoneCell.swift; sourceTree = "<group>"; };
 		28625090209AB87500BD625B /* taskivate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = taskivate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28625093209AB87500BD625B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				2823C4E1209AC72F007A2660 /* UserCell.swift */,
 				288CD7EA20E748DA0082AA8E /* TaskTableCell.swift */,
 				288CD7F420EAFB6F0082AA8E /* BaseCollectionViewCell.swift */,
+				2850F709211FBA280005FA6B /* CustomNavigationItem.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -802,6 +805,7 @@
 				2823C4ED209AC80B007A2660 /* Notification.Name.swift in Sources */,
 				2823C4E4209AC732007A2660 /* UserCell.swift in Sources */,
 				28625096209AB87500BD625B /* ViewController.swift in Sources */,
+				2850F70A211FBA280005FA6B /* CustomNavigationItem.swift in Sources */,
 				2851B1E220D47D0B009088A6 /* UserPhoneCell.swift in Sources */,
 				28B25FC9209D316E00BF2A89 /* DashboardController.swift in Sources */,
 				2843BCF921050304008A291C /* Task.swift in Sources */,

@@ -17,7 +17,7 @@ let userCache = NSCache<NSString, User>()
 var profileImageView: UIImageView = {
     let imageView = UIImageView()
     imageView.image = UIImage(named: "user-filled-blue-50")
-    imageView.frame = CGRect(x:0.0,y:0.0, width:40,height:40.0)
+    imageView.frame = CGRect(x:8.0,y:8.0, width:40,height:40.0)
     
     imageView.translatesAutoresizingMaskIntoConstraints = false
     imageView.layer.cornerRadius = 20
@@ -37,18 +37,16 @@ extension UINavigationItem {
     
     func setUpProfileImage(urlString: String) {
         
-        let widthConstraint = profileImageView.widthAnchor.constraint(equalToConstant: 40)
-        let heightConstraint = profileImageView.heightAnchor.constraint(equalToConstant: 40)
+        profileImageView.widthAnchor.constraint(equalToConstant: 40).isActive = true
+        profileImageView.heightAnchor.constraint(equalToConstant: 40).isActive = true
         
-        heightConstraint.isActive = true
-        widthConstraint.isActive = true
-        
-        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .done, target: nil, action: nil)
-        negativeSpacer.width = 25
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -25
         
         let imageItem = UIBarButtonItem.init(customView: profileImageView)
-        
-        self.leftBarButtonItem =  imageItem
+       
+        self.leftBarButtonItems = [negativeSpacer,imageItem]
+
         
         profileImageView.loadImageUserCacheWithUrlString(urlString: urlString)
         

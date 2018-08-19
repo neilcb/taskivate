@@ -26,6 +26,69 @@ class DateUtils: NSObject {
         
         return dateStr
     }
-    // something here
-
+    
+    static func getStartOfDay() -> Date{
+        
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone //OR NSTimeZone.localTimeZone()
+        let dateAtMidnight = calendar.startOfDay(for: Date())
+        
+        return dateAtMidnight
+    }
+    
+    static func getDateFromString(dateString: String) -> Date {
+        let dateformatter = DateFormatter()
+        
+        dateformatter.dateFormat = "MM/dd/yy h:mm a"
+        
+        let formattedDate = dateformatter.date(from: dateString)
+        
+        guard formattedDate != nil else {
+            fatalError("Date Format does not match ⚠️")
+        }
+        
+        return formattedDate!
+    }
+    
+    static func getEndOfDay(startOfDay: Date) -> Date {
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone //OR NSTimeZone.localTimeZone()
+       
+        let dateAtEnd = calendar.date(byAdding: components, to: startOfDay)
+       
+        return dateAtEnd!
+        
+    }
+    
+    static func getNextDay(startOfDay: Date) -> Date {
+        var components = DateComponents()
+        components.day = 2
+        components.second = -1
+        
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone //OR NSTimeZone.localTimeZone()
+        
+        let dateAtEnd = calendar.date(byAdding: components, to: startOfDay)
+        
+        return dateAtEnd!
+        
+    }
+    
+    static func getEndOfWeek(startOfDay: Date) -> Date {
+        var components = DateComponents()
+        components.day = 7
+        components.second = -1
+        
+        var calendar = NSCalendar.current
+        calendar.timeZone = NSTimeZone(abbreviation: "UTC")! as TimeZone //OR NSTimeZone.localTimeZone()
+        
+        let dateAtEnd = calendar.date(byAdding: components, to: startOfDay)
+        
+        return dateAtEnd!
+        
+    }
 }

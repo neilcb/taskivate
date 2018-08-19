@@ -16,7 +16,7 @@ import ImageRow
 
 class AddTaskViewController: FormViewController {
     var taskViewModel: TaskViewModel!
-    
+    var saveButton: UIBarButtonItem! = nil
     fileprivate(set) var auth:Auth?
     fileprivate(set) var authUI: FUIAuth? //only set internally but get externally
     
@@ -35,12 +35,13 @@ class AddTaskViewController: FormViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "My Tasks"
+        SwiftyBeaver.info("view did load")
         // Do any additional setup after loading the view.
     }
     
     func initialize() {
         
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
+        saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: #selector(saveButtonPressed))
         navigationItem.rightBarButtonItem = saveButton
         
        // let deleteButton = UIBarButtonItem(barButtonSystemItem:., target: self, action: #selector(deleteButtonPressed))
@@ -191,16 +192,23 @@ class AddTaskViewController: FormViewController {
     // MARK: - Actions
     @objc fileprivate func saveButtonPressed(_ sender: UIBarButtonItem) {
         if form.validate().isEmpty {
+            
             if let id = Auth.auth().currentUser?.uid {
+                let sv = UIViewController.displaySpinner(onView: self.view)
                 SwiftyBeaver.info(taskViewModel.getTask())
                 
                 
                 TaskAPI.save(uid: id, task: taskViewModel.getTask(), completion:  { (status, error) in
                     if let err = error {
-                       SwiftyBeaver.error("error saving task \(err)")
+                        SwiftyBeaver.error("error saving task \(err)")
+                        UIViewController.removeSpinner(spinner: sv)
+                        let alert = UIAlertController(title: "Error saving task", message: err.localizedDescription, preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
                     } else {
-                        SwiftyBeaver.info("task \(String(describing: self.taskViewModel.getTask().title)) saved ok")
-                        self.navigationController?.popViewController(animated: true)
+                         SwiftyBeaver.info("task \(String(describing: self.taskViewModel.getTask().title)) saved ok")
+                         UIViewController.removeSpinner(spinner: sv)
+                         NotificationCenter.default.post(name: .didSaveTaskNotification, object: self.taskViewModel.getTask())
+                         self.navigationController?.popViewController(animated: true)
                     }
 //
                })
@@ -405,7 +413,7 @@ extension AddTaskViewController {
         // MARK: - Actions
         
         func delete() {
-            NotificationCenter.default.post(name: .deleteTaskNotification, object: nil, userInfo: [ Notification.Name.deleteTaskNotification : task ])
+            NotificationCenter.default.post(name: .didDeleteTaskNotification, object: nil, userInfo: [ Notification.Name.didDeleteTaskNotification : task ])
         }
     }
 }

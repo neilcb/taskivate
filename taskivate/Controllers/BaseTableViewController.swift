@@ -121,24 +121,29 @@ class BaseTableViewController<T: BaseCell<C>, C>: UITableViewController {
     
     func setUpProfileImage() {
         
+        
         let widthConstraint = profileImageView.widthAnchor.constraint(equalToConstant: 40)
         let heightConstraint = profileImageView.heightAnchor.constraint(equalToConstant: 40)
         
         heightConstraint.isActive = true
         widthConstraint.isActive = true
-        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        negativeSpacer.width = 25
+        
+        let negativeSpacer = UIBarButtonItem.init(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
+        negativeSpacer.width = -25
+        
         let imageItem = UIBarButtonItem.init(customView: profileImageView)
         
         let singleTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(profileImageTaped(recognizer:)))
         singleTap.numberOfTapsRequired = 1;
         profileImageView.addGestureRecognizer(singleTap)
         
-        navigationItem.leftBarButtonItem =  imageItem
+        navigationItem.leftBarButtonItems =  [negativeSpacer,imageItem]
         
         if let profileImageUrl = Auth.auth().currentUser?.photoURL {
             self.profileImageView.loadImageUserCacheWithUrlString(urlString: profileImageUrl.absoluteString)
         }
+        
+        
     }
     
     @objc func profileImageTaped(recognizer: UIGestureRecognizer) {
