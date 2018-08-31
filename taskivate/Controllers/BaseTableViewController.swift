@@ -44,6 +44,8 @@ class BaseTableViewController<T: BaseCell<C>, C>: UITableViewController {
         setUpProfileImage()
         
         tableView.register(T.self, forCellReuseIdentifier: cellId)
+        
+       
     }
     
     

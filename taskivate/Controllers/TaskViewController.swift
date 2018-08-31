@@ -22,9 +22,12 @@ class TaskViewController: BaseTableViewController<TaskTableCell, Task> {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.title = "Tasks"
+        navigationController?.title = "My Tasks"
        
+        refreshControl = UIRefreshControl()
+        refreshControl?.addTarget(self, action: #selector(refreshTasks), for: .valueChanged)
         
+        refreshControl?.beginRefreshing()
         initialize()
         fetchTasks(startDate: startDate, endDate: endDate)
         // Uncomment the following line to preserve selection between presentations
@@ -64,6 +67,10 @@ class TaskViewController: BaseTableViewController<TaskTableCell, Task> {
     @objc func onDidSaveTask(_ notification:Notification) {
         fetchTasks(startDate: startDate, endDate: endDate)
     }
+   
+    @objc func refreshTasks() {
+        fetchTasks(refresh: true, startDate: startDate, endDate: endDate)
+    }
     
     func fetchNextDay() {
         startDate = endDate
@@ -90,12 +97,8 @@ class TaskViewController: BaseTableViewController<TaskTableCell, Task> {
                         }
                         
                       self.loadInProgress = tasks.isEmpty
-                        
-                      
+                      self.refreshControl?.endRefreshing()
                       self.tableView.reloadData()
-                            
-                        
-                       
                        
                     }
                 }

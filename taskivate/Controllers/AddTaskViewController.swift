@@ -34,7 +34,7 @@ class AddTaskViewController: FormViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "My Tasks"
+        self.title = "Task"
         SwiftyBeaver.info("view did load")
         // Do any additional setup after loading the view.
     }
@@ -83,21 +83,21 @@ class AddTaskViewController: FormViewController {
                 
         }
             
-            <<< PushRow<String>("SubCat") { //1
-                $0.title = "Sub Category" //2
-                $0.value = taskViewModel.subCategory //3
-                if let category = taskViewModel.category {
-                    $0.options = taskViewModel.getSubCategories(category: category)
-                }
-                $0.onChange { [unowned self] row in //5
-                    if let value = row.value {
-                        self.taskViewModel.subCategory = value
-                    }
-                }
-                $0.cellSetup{ cell, row in
-                    
-                }
-            }
+//            <<< PushRow<String>("SubCat") { //1
+//                $0.title = "Sub Category" //2
+//                $0.value = taskViewModel.subCategory //3
+//                if let category = taskViewModel.category {
+//                    $0.options = taskViewModel.getSubCategories(category: category)
+//                }
+//                $0.onChange { [unowned self] row in //5
+//                    if let value = row.value {
+//                        self.taskViewModel.subCategory = value
+//                    }
+//                }
+//                $0.cellSetup{ cell, row in
+//                    
+//                }
+//            }
         
             +++ Section()
             <<< DateTimeRow() {
@@ -112,16 +112,58 @@ class AddTaskViewController: FormViewController {
                 }
         }
         
-            <<< PushRow<String>() { //1
+            <<< PushRow<String>("Repeats") { //1
                 $0.title = "Repeats" //2
                 $0.value = taskViewModel.repeatFrequency //3
                 $0.options = taskViewModel.repeatOptions //4
                 $0.onChange { [unowned self] row in //5
                     if let value = row.value {
                         self.taskViewModel.repeatFrequency = value
+                     
+                        if let daterow = self.form.rowBy(tag: "Until") as? DateTimeRow
+                        {
+                            if(self.taskViewModel.repeatFrequency != Task.RepeatFrequency.never.rawValue) {
+                                SwiftyBeaver.info(self.taskViewModel.repeatFrequency)
+                                
+                                daterow.hidden = false
+                            } else {
+                                
+                                daterow.hidden = true
+
+                            }
+                            daterow.value = Date()
+                            daterow.updateCell()
+                            daterow.cell.update()
+                            daterow.reload()
+                        }
+                       
+                      
                     }
                 }
         }
+            
+            <<< DateTimeRow("Until") {
+                $0.dateFormatter = type(of: self).dateFormatter //1
+                $0.title = "Until" //2
+                $0.value = taskViewModel.endDate //3
+                $0.hidden = true
+               
+                
+                $0.onChange { [unowned self] row in //5
+                    if let date = row.value {
+                        self.taskViewModel.dueDate = date
+                        SwiftyBeaver.info("onchange")
+                        if(self.taskViewModel.repeatFrequency != Task.RepeatFrequency.never.rawValue) {
+                           self.taskViewModel.endDate = date
+                        } else {
+                           self.taskViewModel.endDate = Date()
+
+                        }
+                        row.evaluateHidden()
+                    }
+                }
+               
+            }
         
             +++ Section()
             <<< SegmentedRow<String>() {
@@ -288,6 +330,15 @@ extension AddTaskViewController {
             }
         }
         
+        var endDate: Date {
+            get {
+                return task.endDate!
+            }
+            set {
+                task.endDate = newValue
+            }
+        }
+        
         let reminderOptions: [String] = [Task.Reminder.none.rawValue,
                                          Task.Reminder.halfHour.rawValue,
                                          Task.Reminder.oneHour.rawValue,
@@ -396,9 +447,11 @@ extension AddTaskViewController {
             case Task.Category.home.rawValue:
                 return ["Laundry","Clean","Make Bed","Groceries","Organize"]
             case Task.Category.health.rawValue:
-                return ["Run","Job","Walk","Swim","Tennis","Weights"]
+                return ["Run","Jog","Walk","Swim","Cardio","Weights","Yoga","Meditate"]
             case Task.Category.travel.rawValue:
-                return ["Plain","Trains","Auto","Bus","Boat","Hotel","Reseverations"]
+                return ["Plain","Train","Auto","Bus","Boat","Hotel","Reseverations"]
+            case Task.Category.work.rawValue:
+                return ["Meet with mentor","Meet with boss","Connect with Experts","Learn new skill","Send news letter","Lunch with co-worker(s)","Create Webinar", "Networking", "Reflect"]
             default:
                 return ["None"]
             }
@@ -416,6 +469,11 @@ extension AddTaskViewController {
             NotificationCenter.default.post(name: .didDeleteTaskNotification, object: nil, userInfo: [ Notification.Name.didDeleteTaskNotification : task ])
         }
     }
+}
+
+public enum Condition {
+    case function([String], (Form)->Bool)
+    case predicate(NSPredicate)
 }
 
    

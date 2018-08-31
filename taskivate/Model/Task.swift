@@ -11,9 +11,9 @@ import Foundation
 class Task : Equatable {
     
     var title: String?
-    
     var dueDate: Date
     var subCategory: String?
+    var endDate: Date?
     
     fileprivate var reminderDate: Date?
     fileprivate var priority_raw: String
@@ -31,6 +31,7 @@ class Task : Equatable {
          reminderDate: Date? = nil,
          category: String? = nil,
          repeats: String = RepeatFrequency.never.rawValue,
+         endDate: Date? = nil,
          image: Data? = nil,
          status: String = Status.inProgress.rawValue,
          subCategory: String? = nil) {
@@ -39,7 +40,7 @@ class Task : Equatable {
         
         self.dueDate = dueDate
         self.repeats_raw = repeats
-        
+        self.endDate = endDate
         self.priority_raw = priority
         self.reminderDate = reminderDate
         
@@ -53,6 +54,7 @@ class Task : Equatable {
     static func ==(_ lhs: Task, _ rhs: Task) -> Bool {
         return (lhs.title == rhs.title)
             && (lhs.dueDate == rhs.dueDate)
+            && (lhs.endDate == rhs.endDate)
             && (lhs.repeats_raw == rhs.repeats_raw)
             && (lhs.priority_raw == rhs.priority_raw)
             && (lhs.reminderDate == rhs.reminderDate)
@@ -203,21 +205,7 @@ extension Task {
         if let dueDate = (dictionary["dueDate"]) {
             mappedTask.dueDate = dueDate as! Date
         }
-//        "Home 🏠"
-//        dueDate
-//        August 5, 2018 at 1:44:52 PM UTC-7
-//        priority
-//        "!!!"
-//        reminder
-//        "None"
-//        repeats
-//        "Never"
-//        status
-//        "In Progress"
-//        subcategory
-//        "Clean"
-//        title
-//        "Fdasfasffasdf"
+
         return mappedTask
     }
 }

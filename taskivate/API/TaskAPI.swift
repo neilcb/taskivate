@@ -44,7 +44,7 @@ class TaskAPI: NSObject {
         db.collection("users").document(uid).collection("tasks").document().setData([
             "title": task.title!,
             "category": cat,
-            "subcategory": task.subCategory!,
+           // "subcategory": task.subCategory!,
             "dueDate": task.dueDate,
             "priority": task.priority.rawValue,
             "repeats": task.repeats.rawValue,
